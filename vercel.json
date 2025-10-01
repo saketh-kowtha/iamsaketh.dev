@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [{ "src": "vite.config.js", "use": "@vercel/static-build" }],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "env": {
+    "VITE_EMAILJS_SERVICE": "@vite_emailjs_service",
+    "VITE_EMAILJS_TEMPLATE": "@vite_emailjs_template",
+    "VITE_EMAILJS_PUBLIC": "@vite_emailjs_public"
+  }
+}
+

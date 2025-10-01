@@ -1,0 +1,79 @@
+{
+  "en": {
+    "hero": { "title": "Saketh", "subtitle": "Full-Stack Architect", "tagline": "Forged in Code" },
+    "about": { "description": "Full-stack developer crafting resilient, elegant systems.", "quote": "Kindle the flame, ship the product." },
+    "skills": {
+      "frontend": ["React", "React Native", "TypeScript", "Tailwind", "HTML5", "CSS3"],
+      "backend": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST", "GraphQL"],
+      "devops": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+    },
+    "projects": [
+      { "id": "bf", "name": "Blackflame API", "boss": "Keeper of Latency", "description": "Ultra-low-latency APIs.", "tech": ["Node", "FastAPI", "Pg"], "difficulty": "Legendary", "link": "https://github.com/saketh/bf", "image": "/assets/images/bf.jpg" }
+    ],
+    "experience": [
+      { "company": "Firelink Inc.", "role": "Senior Engineer", "period": "2022–Present", "achievements": ["Scaled APIs", "Optimized CI/CD"] }
+    ],
+    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
+    "achievements": ["First Visit", "Viewed All Sections", "Konami Unlocked"],
+    "labels": {
+      "brand": "Portfolio",
+      "nav": { "hero": "Hero", "about": "About", "skills": "Arsenal", "projects": "Boss Battles", "experience": "The Journey", "contact": "Contact" },
+      "cta": { "primary": "Enter Boss Battles", "secondary": "Summon Saketh" },
+      "projectsSub": "Projects faced and conquered",
+      "skillsSub": "Weapons, Armor, and Magic",
+      "intro": { "pressAny": "Press any key to begin" },
+      "loadingMessage": "Igniting bonfire...",
+      "timeline": { "agePrefix": "Age of", "soulsPrefix": "Souls Collected" },
+      "search": { "placeholder": "Archive Search...", "noResults": "No matches found." },
+      "contactForm": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "message": "Message",
+        "send": "Send",
+        "sent": "Achievement Unlocked: Message Sent",
+        "error": "Spell failed to cast. Try again."
+      },
+      "project": {
+        "viewDetails": "View Details",
+        "open": "Open",
+        "droppedLoot": "Dropped Loot",
+        "boss": "Boss",
+        "difficulty": "Difficulty",
+        "lines": "Lines of code",
+        "stars": "GitHub stars",
+        "close": "Close"
+      },
+      "youDied": { "title": "YOU DIED", "home": "Return to Bonfire", "back": "Try Again" },
+      "achievements": { "firstVisit": "Achievement Unlocked: First Visit" },
+      "skillsLore": "tempered by trials"
+    }
+  },
+  "es": {
+    "hero": { "title": "Saketh", "subtitle": "Arquitecto Full-Stack", "tagline": "Forjado en Código" },
+    "about": { "description": "Desarrollador full‑stack creando sistemas elegantes y resistentes.", "quote": "Enciende la llama, lanza el producto." },
+    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
+    "projects": [],
+    "experience": [],
+    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
+    "achievements": []
+  },
+  "ja": {
+    "hero": { "title": "サケス", "subtitle": "フルスタックアーキテクト", "tagline": "コードで鍛錬" },
+    "about": { "description": "堅牢でエレガントなシステムを作るエンジニア。", "quote": "炎を灯し、プロダクトを届ける。" },
+    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
+    "projects": [],
+    "experience": [],
+    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
+    "achievements": []
+  },
+  "hi": {
+    "hero": { "title": "साकेत", "subtitle": "फुल‑स्टैक आर्किटेक्ट", "tagline": "कोड में तपाया" },
+    "about": { "description": "तेज़, भरोसेमंद सिस्टम बनाने वाला डेवलपर।", "quote": "ज्योति जलाओ, प्रोडक्ट पहुँचाओ।" },
+    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
+    "projects": [],
+    "experience": [],
+    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
+    "achievements": []
+  }
+}
+

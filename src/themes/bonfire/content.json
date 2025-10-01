@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "title": "Saketh",
+    "subtitle": "Ashen Developer",
+    "tagline": "Bearer of Code, Seeker of Solutions"
+  },
+  "about": {
+    "description": "An Unkindled developer who refused to let bugs consume the flame. Tempered through countless deployments, shipping under pressure with the precision of a parry.",
+    "quote": "Ashen one, hearest thou my voice? Bring me souls... I mean, clean code."
+  },
+  "labels": {
+    "nav": {
+      "hero": "Firelink",
+      "about": "Ashen One",
+      "skills": "Arsenal",
+      "projects": "Boss Souls",
+      "experience": "Journey",
+      "contact": "Summon"
+    },
+    "cta": {
+      "primary": "Challenge the Bosses",
+      "secondary": "Light the Bonfire"
+    }
+  }
+}

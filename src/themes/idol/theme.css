@@ -1,0 +1,108 @@
+/* Sculptor's Idol (Sekiro) - Authentic Colors */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap');
+
+:root {
+  /* Sekiro authentic palette - muted, weathered */
+  --bg-abyss: #0c0d0e;            /* Deep charcoal */
+  --bg-wood: #1a1612;             /* Aged wood */
+  --bg-stone: #2a2520;            /* Stone gray */
+  --accent-idol: #c0b9a0;         /* Weathered brass/ivory */
+  --accent-sake: #8b7355;         /* Sake brown */
+  --accent-blood: #7a1a1a;        /* Dark blood red */
+  --accent-steel: #6b7280;        /* Steel gray */
+  --text-primary: #e5e7eb;        /* Light gray */
+  --text-paper: #d4cfc0;          /* Aged paper */
+  --text-muted: #9ca3af;          /* Muted gray */
+  --text-dark: #3a3530;
+
+  /* Fonts */
+  --font-heading: 'Cormorant Garamond', 'Noto Serif JP', serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+
+  --color-bg: #0c0d0e;
+  --color-surface: #1a1612;
+  --color-accent: #c0b9a0;
+  --color-accent-2: #8b7355;
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+  --color-danger: #7a1a1a;
+  --glass-bg: rgba(26, 22, 18, 0.6);
+  --glass-border: rgba(192, 185, 160, 0.12);
+  --border-ornate: rgba(192, 185, 160, 0.3);
+  --title-glow-1: rgba(192, 185, 160, 0.15);
+  --title-glow-2: rgba(139, 115, 85, 0.2);
+  --glow-ember: rgba(192, 185, 160, 0.3);
+  --vignette-end: rgba(0, 0, 0, 0.65);
+  --grain-opacity: 0.04;
+  --fog-start: rgba(192, 185, 160, 0.02);
+}
+
+html.idol, body.idol {
+  background: linear-gradient(180deg, var(--bg-abyss) 0%, var(--bg-wood) 50%, #15120e 100%);
+  color: var(--text-primary);
+}
+
+.idol .font-gothic { font-family: var(--font-heading); }
+.idol body { font-family: var(--font-body); }
+
+/* Subtle idol glow */
+.idol .text-idol { 
+  color: var(--accent-idol) !important;
+  text-shadow: 0 0 10px rgba(192, 185, 160, 0.2);
+}
+
+.idol .text-steel { 
+  color: var(--accent-steel) !important;
+}
+
+.idol .border-idol { 
+  border-color: var(--accent-idol) !important;
+}
+
+.idol .glass {
+  background: rgba(26, 22, 18, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(192, 185, 160, 0.15);
+}
+
+/* Japanese aesthetic - minimal particles */
+.idol .sakura-particle {
+  background: radial-gradient(circle, rgba(255, 200, 200, 0.6), rgba(255, 150, 150, 0.3));
+  animation: float-sakura 6s infinite ease-out;
+}
+
+@keyframes float-sakura {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.6; }
+  100% { transform: translateY(-120px) translateX(-30px) rotate(90deg); opacity: 0; }
+}
+
+/* Weathered wood texture */
+.idol .card-wood {
+  background: linear-gradient(135deg, rgba(42, 37, 32, 0.6), rgba(26, 22, 18, 0.8));
+  border: 2px solid rgba(192, 185, 160, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.idol .btn-prayer {
+  background: linear-gradient(180deg, rgba(192, 185, 160, 0.3), rgba(139, 115, 85, 0.4));
+  color: var(--text-paper);
+  border: 2px solid var(--accent-idol);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.idol .btn-prayer:hover {
+  background: linear-gradient(180deg, rgba(192, 185, 160, 0.5), rgba(139, 115, 85, 0.6));
+  border-color: var(--text-paper);
+  box-shadow: 0 0 20px rgba(192, 185, 160, 0.3);
+}
+
+/* Japanese calligraphy style */
+.idol .text-calligraphy {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
