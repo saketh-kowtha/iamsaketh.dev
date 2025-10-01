@@ -1,28 +1,48 @@
 import { Link } from 'react-router-dom'
-import { THEMES } from '../themes/registry'
-import { useTheme } from '../context/useTheme.js'
+import { useMode } from '../hooks/useMode'
+import { useTheme } from '../hooks/useTheme'
+import { getContent, getNavigationItems } from '../utils/content'
+import ModeToggle from './ModeToggle'
+import ThemeSelector from './ThemeSelector'
 
 export default function Navigation() {
-  const { theme, setTheme, content } = useTheme()
+  const { mode } = useMode()
+  const { theme } = useTheme()
+  const content = getContent(mode, theme)
+  const navItems = getNavigationItems(content)
+
   return (
     <nav className="fixed top-0 inset-x-0 z-20 glass ornate-border">
-      <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex h-14 items-center justify-between">
-          <Link to="/home" className="font-gothic text-auric text-lg">{content?.labels?.brand || 'Portfolio'}</Link>
-          <div className="flex items-center gap-2">
-            <a href="#hero" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.hero || 'Hero'}</a>
-            <a href="#about" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.about || 'About'}</a>
-            <a href="#skills" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.skills || 'Skills'}</a>
-            <a href="#projects" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.projects || 'Projects'}</a>
-            <a href="#experience" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.experience || 'Experience'}</a>
-            <a href="#contact" className="px-3 py-2 text-gray-300 hover:text-auric">{content?.labels?.nav?.contact || 'Contact'}</a>
-            <select value={theme} onChange={(e) => setTheme(e.target.value)} className="ml-2 px-2 py-1 bg-onyx border border-auric text-gray-200 rounded text-xs" aria-label="Select theme">
-              {THEMES.map(t => <option key={t} value={t}>{t === 'idol' ? "Sculptor's Idol" : t.charAt(0).toUpperCase() + t.slice(1)}</option>)}
-            </select>
+      <div className="mx-auto max-w-screen-2xl px-4 sm:px-6">
+        <div className="flex h-16 items-center justify-between">
+          {/* Brand */}
+          <Link
+            to="/home"
+            className="font-gothic text-accent text-lg font-semibold hover:text-accent-2 transition-colors"
+          >
+            {content.navigation.brand}
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-muted hover:text-accent transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center gap-3">
+            {mode === 'game' && <ThemeSelector />}
+            <ModeToggle />
           </div>
         </div>
       </div>
     </nav>
   )
 }
-

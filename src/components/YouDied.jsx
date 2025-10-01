@@ -1,14 +1,23 @@
-import { useTheme } from '../context/ThemeContext.jsx'
-
 export default function YouDied() {
-  const { content } = useTheme()
   return (
-    <div className="min-h-screen flex items-center justify-center bg-abyss vignette-overlay">
+    <div className="min-h-screen flex items-center justify-center bg-base vignette-overlay grain-overlay">
       <div className="text-center">
-        <div className="text-6xl md:text-8xl font-gothic text-red-700 tracking-widest">{content?.labels?.youDied?.title || 'YOU DIED'}</div>
-        <div className="mt-8 flex gap-4 justify-center">
-          <a href="/home" className="px-4 py-2 bg-onyx border border-red-900 text-gray-200 rounded">{content?.labels?.youDied?.home || 'Return to Bonfire'}</a>
-          <button onClick={() => history.back()} className="px-4 py-2 bg-onyx border border-red-900 text-gray-200 rounded">{content?.labels?.youDied?.back || 'Try Again'}</button>
+        <h1 className="text-7xl md:text-9xl font-gothic text-danger tracking-widest mb-8 distressed-text">
+          YOU DIED
+        </h1>
+        <div className="flex gap-4 justify-center">
+          <a
+            href="/home"
+            className="btn-primary px-6 py-3"
+          >
+            Return to Safety
+          </a>
+          <button
+            onClick={() => window.history.back()}
+            className="btn-secondary px-6 py-3"
+          >
+            Try Again
+          </button>
         </div>
       </div>
     </div>

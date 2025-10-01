@@ -1,5 +1,8 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useMode } from './hooks/useMode'
+import { useAchievements } from './hooks/useAchievements'
+import { useReveal } from './hooks/useReveal'
 import './index.css'
 
 const IntroScreen = lazy(() => import('./components/IntroScreen.jsx'))
@@ -13,22 +16,38 @@ const ContactSection = lazy(() => import('./components/ContactSection.jsx'))
 const SearchModal = lazy(() => import('./components/SearchModal.jsx'))
 const AchievementToast = lazy(() => import('./components/AchievementToast.jsx'))
 const YouDied = lazy(() => import('./components/YouDied.jsx'))
-import { useEffect } from 'react'
-import { useAchievements } from './hooks/useAchievements'
-import { useReveal } from './hooks/useReveal'
+const ParticleSystem = lazy(() => import('./components/ParticleSystem.jsx'))
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen w-screen flex items-center justify-center bg-base">
+      <p className="text-accent font-gothic text-xl animate-pulse">
+        Loading...
+      </p>
+    </div>
+  )
+}
 
 function Layout() {
+  const { mode } = useMode()
   const { unlock, KEYS } = useAchievements()
   useReveal()
+
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll('section[id]')).map(s => s.id)
+    const sections = Array.from(document.querySelectorAll('section[id]')).map(
+      (s) => s.id
+    )
     const seen = new Set()
+
     const onScroll = () => {
       for (const id of sections) {
         const el = document.getElementById(id)
         if (!el) continue
         const rect = el.getBoundingClientRect()
-        if (rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3) {
+        if (
+          rect.top < window.innerHeight * 0.7 &&
+          rect.bottom > window.innerHeight * 0.3
+        ) {
           seen.add(id)
           if (seen.size >= sections.length) {
             unlock(KEYS.ALL_SECTIONS)
@@ -36,16 +55,21 @@ function Layout() {
         }
       }
     }
+
     const debounced = () => {
       clearTimeout(window.__scrollTimer)
       window.__scrollTimer = setTimeout(onScroll, 100)
     }
+
     window.addEventListener('scroll', debounced, { passive: true })
     onScroll()
+
     return () => window.removeEventListener('scroll', debounced)
-  }, [unlock, KEYS.ALL_SECTIONS])
+  }, [unlock, KEYS])
+
   return (
-    <div className="min-h-screen w-screen bg-abyss vignette-overlay grain-overlay">
+    <div className="min-h-screen w-screen bg-base vignette-overlay grain-overlay">
+      {mode === 'game' && <ParticleSystem />}
       <Navigation />
       <main className="relative overflow-x-hidden w-screen">
         <div data-reveal>
@@ -76,7 +100,7 @@ function Layout() {
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="text-center p-10 text-auric font-gothic flex h-full w-full items-center justify-center">Igniting bonfire...</div>}>
+      <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<IntroScreen />} />
           <Route path="/home" element={<Layout />} />

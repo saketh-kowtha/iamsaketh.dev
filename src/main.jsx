@@ -1,16 +1,32 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { inject } from '@vercel/analytics'
-import { ThemeProvider } from './context/ThemeContext.jsx'
+import { useMode } from './hooks/useMode'
+import { useTheme } from './hooks/useTheme'
 
 inject()
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <ThemeProvider>
+function ThemeInitializer() {
+  const { mode } = useMode()
+  const { theme } = useTheme()
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-mode', mode)
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [mode, theme])
+
+  return null
+}
+
+function Root() {
+  return (
+    <StrictMode>
+      <ThemeInitializer />
       <App />
-    </ThemeProvider>
-  </StrictMode>,
-)
+    </StrictMode>
+  )
+}
+
+createRoot(document.getElementById('root')).render(<Root />)

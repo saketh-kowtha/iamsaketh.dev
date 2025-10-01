@@ -1,24 +1,30 @@
-import { useLanguage } from '../hooks/useLanguage'
+import { useMode } from '../hooks/useMode'
+import { useTheme } from '../hooks/useTheme'
+import { getContent } from '../utils/content'
 import ProjectCard from './ProjectCard'
-import { useTheme } from '../context/useTheme.js'
 
 export default function ProjectsSection() {
-  const { lang } = useLanguage()
-  const { content } = useTheme()
-  const themeRoot = content[lang] || content
-  const projects = themeRoot.projects || []
+  const { mode } = useMode()
+  const { theme } = useTheme()
+  const content = getContent(mode, theme)
+  const projects = content.projects
+
   return (
-    <section id="projects" className="py-20 bg-onyx">
-      <div className="w-full px-6 md:px-12">
-        <div className="flex items-baseline gap-3">
-          <h3 className="font-gothic text-3xl text-auric distressed-text">{content?.labels?.nav?.projects || 'Boss Battles'}</h3>
-          <p className="text-sm text-gray-500">{content?.labels?.projectsSub || 'Projects faced and conquered'}</p>
+    <section id="projects" className="py-24 bg-surface">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-12">
+          <h2 className="font-gothic text-5xl text-accent distressed-text mb-3">
+            {projects.title}
+          </h2>
+          <p className="text-base text-muted">{projects.subtitle}</p>
         </div>
-        <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-          {projects.map((p) => <ProjectCard key={p.id} project={p} />)}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.items.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
       </div>
     </section>
   )
 }
-

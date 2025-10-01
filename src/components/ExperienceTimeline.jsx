@@ -1,35 +1,65 @@
-import { useLanguage } from '../hooks/useLanguage'
-import { useTheme } from '../context/useTheme.js'
+import { useMode } from '../hooks/useMode'
+import { useTheme } from '../hooks/useTheme'
+import { getContent } from '../utils/content'
 
 export default function ExperienceTimeline() {
-  const { lang } = useLanguage()
-  const { content } = useTheme()
-  const timeline = (content[lang] || content).experience
+  const { mode } = useMode()
+  const { theme } = useTheme()
+  const content = getContent(mode, theme)
+  const experience = content.experience
+
   return (
-    <section id="experience" className="py-20 bg-abyss">
-      <div className="w-full px-6 md:px-12">
-        <h3 className="font-gothic text-3xl text-auric text-center">The Journey</h3>
-        <div className="mt-12 relative max-w-6xl mx-auto">
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 timeline-line" />
-          <ol className="space-y-10">
-            {timeline.map((t, i) => {
-              const left = i % 2 === 0
+    <section id="experience" className="py-24 bg-base">
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-12">
+        <div className="text-center mb-12">
+          <h2 className="font-gothic text-5xl text-accent distressed-text mb-3">
+            {experience.title}
+          </h2>
+          <p className="text-base text-muted">{experience.subtitle}</p>
+        </div>
+
+        <div className="relative">
+          {/* Timeline spine */}
+          <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-accent opacity-30" />
+
+          <ol className="space-y-12">
+            {experience.items.map((item, index) => {
+              const isLeft = index % 2 === 0
+
               return (
-                <li key={t.company} className={`relative md:flex ${left ? 'md:justify-start' : 'md:justify-end'}`}>
-                  {/* Center node on the spine */}
-                  <span className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-onyx border border-auric shadow-ember" />
-                  {/* Connector arm from spine to card */}
-                  {left ? (
-                    <span className="hidden md:block absolute top-1/2 -translate-y-1/2 right-1/2 w-14 h-[2px] bg-auric/30" />
-                  ) : (
-                    <span className="hidden md:block absolute top-1/2 -translate-y-1/2 left-1/2 w-14 h-[2px] bg-auric/30" />
-                  )}
-                  <div className={`${left ? 'md:pr-16' : 'md:pl-16'} w-full md:w-auto`}>
-                    <div className="relative inline-block max-w-xl p-5 card-gothic text-left">
-                      <h4 className="text-lg text-gray-200">{t.role} • {t.company}</h4>
-                      <p className="text-gray-400">Age of {t.company}</p>
-                      <ul className="list-disc pl-5 text-gray-300">
-                        {t.achievements.map((a) => <li key={a}>Souls Collected: {a}</li>)}
+                <li
+                  key={`${item.company}-${item.role}`}
+                  className={`relative flex ${
+                    isLeft ? 'md:justify-start' : 'md:justify-end'
+                  }`}
+                >
+                  {/* Timeline node */}
+                  <span className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-6 w-4 h-4 rounded-full bg-accent border-4 border-base shadow-lg z-10" />
+
+                  {/* Card */}
+                  <div
+                    className={`ml-8 md:ml-0 w-full md:w-5/12 ${
+                      isLeft ? 'md:pr-12' : 'md:pl-12'
+                    }`}
+                  >
+                    <div className="card p-6">
+                      <h3 className="text-xl font-bold text-primary mb-1">
+                        {item.role}
+                      </h3>
+                      <p className="text-sm text-accent font-medium mb-2">
+                        {item.company}
+                      </p>
+                      <p className="text-sm text-muted mb-4">{item.period}</p>
+                      <ul className="space-y-2">
+                        {item.achievements.map((achievement, idx) => (
+                          <li
+                            key={idx}
+                            className="text-sm text-muted flex items-start"
+                          >
+                            <span className="mr-2 text-accent">→</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -42,4 +72,3 @@ export default function ExperienceTimeline() {
     </section>
   )
 }
-

@@ -1,79 +1,455 @@
 {
-  "en": {
-    "hero": { "title": "Saketh", "subtitle": "Full-Stack Architect", "tagline": "Forged in Code" },
-    "about": { "description": "Full-stack developer crafting resilient, elegant systems.", "quote": "Kindle the flame, ship the product." },
-    "skills": {
-      "frontend": ["React", "React Native", "TypeScript", "Tailwind", "HTML5", "CSS3"],
-      "backend": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST", "GraphQL"],
-      "devops": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+  "modes": {
+    "normal": {
+      "navigation": {
+        "brand": "Saketh.dev",
+        "hero": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "projects": "Projects",
+        "experience": "Experience",
+        "contact": "Contact"
+      },
+      "hero": {
+        "title": "Saketh",
+        "subtitle": "Full-Stack Architect",
+        "tagline": "Building resilient, scalable systems"
+      },
+      "about": {
+        "description": "Full-stack developer specializing in building resilient, elegant systems. Passionate about clean code, performance optimization, and delivering exceptional user experiences.",
+        "quote": "Code with purpose. Ship with confidence."
+      },
+      "skills": {
+        "title": "Technical Skills",
+        "subtitle": "Technologies and tools I work with",
+        "categories": {
+          "frontend": {
+            "title": "Frontend",
+            "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+          },
+          "backend": {
+            "title": "Backend",
+            "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+          },
+          "devops": {
+            "title": "DevOps & Tools",
+            "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+          }
+        }
+      },
+      "projects": {
+        "title": "Featured Projects",
+        "subtitle": "A selection of work I'm proud of",
+        "items": [
+          {
+            "id": "project-1",
+            "name": "Blackflame API",
+            "description": "Ultra-low-latency API gateway handling 100K+ requests per second with sub-10ms response times.",
+            "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+            "difficulty": "Complex",
+            "link": "https://github.com/saketh",
+            "image": "/assets/images/bf.jpg"
+          }
+        ],
+        "cta": {
+          "primary": "View Project",
+          "secondary": "View on GitHub"
+        }
+      },
+      "experience": {
+        "title": "Professional Journey",
+        "subtitle": "Career highlights and achievements",
+        "items": [
+          {
+            "company": "Firelink Inc.",
+            "role": "Senior Software Engineer",
+            "period": "2022 – Present",
+            "achievements": [
+              "Architected and deployed microservices infrastructure serving 1M+ users",
+              "Reduced API response time by 60% through optimization",
+              "Led team of 5 developers in building production-ready features"
+            ]
+          }
+        ]
+      },
+      "contact": {
+        "title": "Get In Touch",
+        "subtitle": "Let's build something great together",
+        "email": "hello@saketh.dev",
+        "github": "https://github.com/saketh",
+        "linkedin": "https://linkedin.com/in/saketh",
+        "twitter": "https://x.com/saketh",
+        "form": {
+          "name": "Your Name",
+          "email": "Your Email",
+          "message": "Message",
+          "send": "Send Message",
+          "sent": "Message sent successfully!",
+          "error": "Failed to send message. Please try again."
+        }
+      }
     },
-    "projects": [
-      { "id": "bf", "name": "Blackflame API", "boss": "Keeper of Latency", "description": "Ultra-low-latency APIs.", "tech": ["Node", "FastAPI", "Pg"], "difficulty": "Legendary", "link": "https://github.com/saketh/bf", "image": "/assets/images/bf.jpg" }
-    ],
-    "experience": [
-      { "company": "Firelink Inc.", "role": "Senior Engineer", "period": "2022–Present", "achievements": ["Scaled APIs", "Optimized CI/CD"] }
-    ],
-    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
-    "achievements": ["First Visit", "Viewed All Sections", "Konami Unlocked"],
-    "labels": {
-      "brand": "Portfolio",
-      "nav": { "hero": "Hero", "about": "About", "skills": "Arsenal", "projects": "Boss Battles", "experience": "The Journey", "contact": "Contact" },
-      "cta": { "primary": "Enter Boss Battles", "secondary": "Summon Saketh" },
-      "projectsSub": "Projects faced and conquered",
-      "skillsSub": "Weapons, Armor, and Magic",
-      "intro": { "pressAny": "Press any key to begin" },
-      "loadingMessage": "Igniting bonfire...",
-      "timeline": { "agePrefix": "Age of", "soulsPrefix": "Souls Collected" },
-      "search": { "placeholder": "Archive Search...", "noResults": "No matches found." },
-      "contactForm": {
-        "name": "Your Name",
-        "email": "Your Email",
-        "message": "Message",
-        "send": "Send",
-        "sent": "Achievement Unlocked: Message Sent",
-        "error": "Spell failed to cast. Try again."
+    "game": {
+      "bonfire": {
+        "navigation": {
+          "brand": "Ashen Portfolio",
+          "hero": "Firelink",
+          "about": "Ashen One",
+          "skills": "Arsenal",
+          "projects": "Boss Souls",
+          "experience": "Journey",
+          "contact": "Summon"
+        },
+        "hero": {
+          "title": "Saketh",
+          "subtitle": "Ashen Developer",
+          "tagline": "Bearer of Code, Seeker of Solutions"
+        },
+        "about": {
+          "description": "An Unkindled developer who refused to let bugs consume the flame. Tempered through countless deployments, shipping under pressure with the precision of a parry.",
+          "quote": "Ashen one, hearest thou my voice? Bring me souls... I mean, clean code."
+        },
+        "skills": {
+          "title": "Arsenal of the Unkindled",
+          "subtitle": "Weapons tempered in the bonfire",
+          "categories": {
+            "frontend": {
+              "title": "Sorceries",
+              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+            },
+            "backend": {
+              "title": "Pyromancies",
+              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+            },
+            "devops": {
+              "title": "Miracles",
+              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+            }
+          }
+        },
+        "projects": {
+          "title": "Bosses Conquered",
+          "subtitle": "Souls collected through trial and triumph",
+          "items": [
+            {
+              "id": "bf-bonfire",
+              "name": "Blackflame API",
+              "boss": "Keeper of Latency",
+              "description": "Defeated the lag demon with ultra-low-latency APIs. Every millisecond counts in the abyss.",
+              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "difficulty": "Legendary",
+              "link": "https://github.com/saketh",
+              "image": "/assets/images/bf.jpg"
+            }
+          ],
+          "cta": {
+            "primary": "Challenge the Boss",
+            "secondary": "Light the Bonfire"
+          }
+        },
+        "experience": {
+          "title": "The Journey So Far",
+          "subtitle": "Bonfires lit, bosses defeated",
+          "items": [
+            {
+              "company": "Firelink Inc.",
+              "role": "Lord of Cinder (Senior Engineer)",
+              "period": "Age of Fire: 2022 – Present",
+              "achievements": [
+                "Linked the fire by deploying microservices for 1M+ hollow souls",
+                "Parried 60% of latency issues with surgical optimization",
+                "Led a covenant of 5 developers through the abyss of production"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Summon the Developer",
+          "subtitle": "Leave your mark on the bonfire",
+          "email": "hello@saketh.dev",
+          "github": "https://github.com/saketh",
+          "linkedin": "https://linkedin.com/in/saketh",
+          "twitter": "https://x.com/saketh",
+          "form": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "message": "Message",
+            "send": "Cast Message",
+            "sent": "Achievement Unlocked: Message Sent",
+            "error": "Spell failed to cast. Try again, Ashen One."
+          }
+        }
       },
-      "project": {
-        "viewDetails": "View Details",
-        "open": "Open",
-        "droppedLoot": "Dropped Loot",
-        "boss": "Boss",
-        "difficulty": "Difficulty",
-        "lines": "Lines of code",
-        "stars": "GitHub stars",
-        "close": "Close"
+      "grace": {
+        "navigation": {
+          "brand": "Tarnished Portfolio",
+          "hero": "The Lands Between",
+          "about": "Tarnished",
+          "skills": "Great Runes",
+          "projects": "Demigods",
+          "experience": "Two Fingers",
+          "contact": "Summon Pool"
+        },
+        "hero": {
+          "title": "Saketh",
+          "subtitle": "Tarnished Developer",
+          "tagline": "Guided by Grace, Forged in Code"
+        },
+        "about": {
+          "description": "A Tarnished who rose from obscurity to build scalable systems across the Lands Between. Full-stack architect crafting resilient, elegant solutions that would make Marika proud.",
+          "quote": "The guidance of grace shall lead thee to the Elden Throne."
+        },
+        "skills": {
+          "title": "Great Runes of Power",
+          "subtitle": "Fragments of the Elden Ring",
+          "categories": {
+            "frontend": {
+              "title": "Runes of Sight",
+              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+            },
+            "backend": {
+              "title": "Runes of Strength",
+              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+            },
+            "devops": {
+              "title": "Runes of Order",
+              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+            }
+          }
+        },
+        "projects": {
+          "title": "Demigods Slain",
+          "subtitle": "Great Runes claimed in battle",
+          "items": [
+            {
+              "id": "bf-grace",
+              "name": "Blackflame API",
+              "boss": "Malenia, Blade of Latency",
+              "description": "She has never known defeat... until this API reduced response times to near-zero.",
+              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "difficulty": "Demigod",
+              "link": "https://github.com/saketh",
+              "image": "/assets/images/bf.jpg"
+            }
+          ],
+          "cta": {
+            "primary": "Become Elden Lord",
+            "secondary": "Rest at Grace"
+          }
+        },
+        "experience": {
+          "title": "Path of the Two Fingers",
+          "subtitle": "Guided toward the Elden Throne",
+          "items": [
+            {
+              "company": "Firelink Inc.",
+              "role": "Elden Lord (Senior Engineer)",
+              "period": "Age of the Erdtree: 2022 – Present",
+              "achievements": [
+                "Mended the Elden Ring by architecting microservices for 1M+ Tarnished",
+                "Defeated the latency demigod with 60% performance gains",
+                "Commanded a fellowship of 5 developers through the Lands Between"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Activate the Summon Pool",
+          "subtitle": "Call upon the Tarnished",
+          "email": "hello@saketh.dev",
+          "github": "https://github.com/saketh",
+          "linkedin": "https://linkedin.com/in/saketh",
+          "twitter": "https://x.com/saketh",
+          "form": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "message": "Message",
+            "send": "Summon",
+            "sent": "Great Rune Acquired: Message Delivered",
+            "error": "Summon failed. The grace has faded."
+          }
+        }
       },
-      "youDied": { "title": "YOU DIED", "home": "Return to Bonfire", "back": "Try Again" },
-      "achievements": { "firstVisit": "Achievement Unlocked: First Visit" },
-      "skillsLore": "tempered by trials"
+      "idol": {
+        "navigation": {
+          "brand": "Shinobi Portfolio",
+          "hero": "Ashina",
+          "about": "Shinobi",
+          "skills": "Prosthetic Tools",
+          "projects": "Inner Bosses",
+          "experience": "Sculptor's Path",
+          "contact": "Send a Crow"
+        },
+        "hero": {
+          "title": "Saketh",
+          "subtitle": "Shinobi of Systems",
+          "tagline": "Hesitation is Deployment Failure"
+        },
+        "about": {
+          "description": "A wolf among developers. Swift execution, ruthless refactors, perfect deflections of edge cases. Death is not defeat—it's a learning opportunity.",
+          "quote": "My name is Saketh. Wolf among developers."
+        },
+        "skills": {
+          "title": "Shinobi Prosthetic Tools",
+          "subtitle": "Tools of the Wolf",
+          "categories": {
+            "frontend": {
+              "title": "Loaded Shuriken",
+              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+            },
+            "backend": {
+              "title": "Flame Vent",
+              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+            },
+            "devops": {
+              "title": "Divine Abduction",
+              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+            }
+          }
+        },
+        "projects": {
+          "title": "Inner Bosses Defeated",
+          "subtitle": "Trials of skill and precision",
+          "items": [
+            {
+              "id": "bf-idol",
+              "name": "Blackflame API",
+              "boss": "Inner Father (Latency)",
+              "description": "The ultimate test of deflection. Every request parried with sub-10ms precision.",
+              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "difficulty": "Inner",
+              "link": "https://github.com/saketh",
+              "image": "/assets/images/bf.jpg"
+            }
+          ],
+          "cta": {
+            "primary": "Face Inner Bosses",
+            "secondary": "Prayer at Idol"
+          }
+        },
+        "experience": {
+          "title": "The Sculptor's Path",
+          "subtitle": "Carved from stone, tempered by battle",
+          "items": [
+            {
+              "company": "Firelink Inc.",
+              "role": "Sword Saint (Senior Engineer)",
+              "period": "Year of the Dragon: 2022 – Present",
+              "achievements": [
+                "Mastered the Mortal Blade by deploying microservices for 1M+ shinobi",
+                "Deflected 60% of latency attacks with lightning reversal techniques",
+                "Led a pack of 5 wolves through the fires of production"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Send a Crow",
+          "subtitle": "Summon the Wolf",
+          "email": "hello@saketh.dev",
+          "github": "https://github.com/saketh",
+          "linkedin": "https://linkedin.com/in/saketh",
+          "twitter": "https://x.com/saketh",
+          "form": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "message": "Message",
+            "send": "Send Crow",
+            "sent": "Shinobi Execution: Message Delivered",
+            "error": "The crow was intercepted. Try again."
+          }
+        }
+      },
+      "stargazer": {
+        "navigation": {
+          "brand": "Puppet Portfolio",
+          "hero": "Krat",
+          "about": "Puppet",
+          "skills": "Legion Arms",
+          "projects": "Puppet Bosses",
+          "experience": "Geppetto's Workshop",
+          "contact": "Hotel Krat"
+        },
+        "hero": {
+          "title": "Saketh",
+          "subtitle": "Automaton Developer",
+          "tagline": "Strings Cannot Bind Purpose"
+        },
+        "about": {
+          "description": "Precision engineering meets creative autonomy. Crafting immaculate APIs and pixel-perfect UIs in the puppet city of Krat. Built on gears, driven by will.",
+          "quote": "You're telling lies... but lies can become truths."
+        },
+        "skills": {
+          "title": "Legion Arms Arsenal",
+          "subtitle": "Mechanical mastery meets artistry",
+          "categories": {
+            "frontend": {
+              "title": "Puppet String",
+              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+            },
+            "backend": {
+              "title": "Aegis",
+              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+            },
+            "devops": {
+              "title": "Falcon Eyes",
+              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+            }
+          }
+        },
+        "projects": {
+          "title": "Puppet Bosses Dismantled",
+          "subtitle": "Gears ground, strings severed",
+          "items": [
+            {
+              "id": "bf-stargazer",
+              "name": "Blackflame API",
+              "boss": "King of Puppets (Latency)",
+              "description": "The puppet master's strings could not bind this performance. Mechanical precision at scale.",
+              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "difficulty": "King",
+              "link": "https://github.com/saketh",
+              "image": "/assets/images/bf.jpg"
+            }
+          ],
+          "cta": {
+            "primary": "Inspect Bosses",
+            "secondary": "Rest at Stargazer"
+          }
+        },
+        "experience": {
+          "title": "From Geppetto's Workshop",
+          "subtitle": "Crafted with purpose, refined with will",
+          "items": [
+            {
+              "company": "Firelink Inc.",
+              "role": "Nameless Puppet (Senior Engineer)",
+              "period": "Belle Époque: 2022 – Present",
+              "achievements": [
+                "Cut the strings by architecting autonomous microservices for 1M+ puppets",
+                "Wound the clockwork to reduce latency by 60%",
+                "Assembled a workshop of 5 engineers to craft production masterpieces"
+              ]
+            }
+          ]
+        },
+        "contact": {
+          "title": "Return to Hotel Krat",
+          "subtitle": "The puppet awaits your message",
+          "email": "hello@saketh.dev",
+          "github": "https://github.com/saketh",
+          "linkedin": "https://linkedin.com/in/saketh",
+          "twitter": "https://x.com/saketh",
+          "form": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "message": "Message",
+            "send": "Send Ergo",
+            "sent": "Ergo Received: Message Delivered",
+            "error": "The puppet strings tangled. Try again."
+          }
+        }
+      }
     }
-  },
-  "es": {
-    "hero": { "title": "Saketh", "subtitle": "Arquitecto Full-Stack", "tagline": "Forjado en Código" },
-    "about": { "description": "Desarrollador full‑stack creando sistemas elegantes y resistentes.", "quote": "Enciende la llama, lanza el producto." },
-    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
-    "projects": [],
-    "experience": [],
-    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
-    "achievements": []
-  },
-  "ja": {
-    "hero": { "title": "サケス", "subtitle": "フルスタックアーキテクト", "tagline": "コードで鍛錬" },
-    "about": { "description": "堅牢でエレガントなシステムを作るエンジニア。", "quote": "炎を灯し、プロダクトを届ける。" },
-    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
-    "projects": [],
-    "experience": [],
-    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
-    "achievements": []
-  },
-  "hi": {
-    "hero": { "title": "साकेत", "subtitle": "फुल‑स्टैक आर्किटेक्ट", "tagline": "कोड में तपाया" },
-    "about": { "description": "तेज़, भरोसेमंद सिस्टम बनाने वाला डेवलपर।", "quote": "ज्योति जलाओ, प्रोडक्ट पहुँचाओ।" },
-    "skills": { "frontend": ["React", "TypeScript"], "backend": ["Node", "PostgreSQL"], "devops": ["Docker", "AWS"] },
-    "projects": [],
-    "experience": [],
-    "contact": { "email": "hello@saketh.dev", "github": "https://github.com/saketh", "linkedin": "https://linkedin.com/in/saketh", "twitter": "https://x.com/saketh" },
-    "achievements": []
   }
 }
-

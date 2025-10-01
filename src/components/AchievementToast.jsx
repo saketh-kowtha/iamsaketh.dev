@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react'
-import { useTheme } from '../context/ThemeContext.jsx'
 
 export default function AchievementToast() {
   const [msg, setMsg] = useState(null)
-  const { content } = useTheme()
 
   useEffect(() => {
-    const visited = localStorage.getItem('visited')
+    const visited = localStorage.getItem('portfolio-visited')
     if (!visited) {
-      setTimeout(() => setMsg(content?.labels?.achievements?.firstVisit || 'Achievement Unlocked: First Visit'), 800)
-      localStorage.setItem('visited', 'true')
+      setTimeout(() => {
+        setMsg('Achievement Unlocked: First Visit')
+      }, 1000)
+      localStorage.setItem('portfolio-visited', 'true')
+
+      setTimeout(() => {
+        setMsg(null)
+      }, 5000)
     }
   }, [])
 
   if (!msg) return null
+
   return (
-    <div className="fixed bottom-6 right-6 z-30 bg-onyx border border-auric text-gray-100 px-4 py-3 rounded shadow-ember">
-      {msg}
+    <div className="fixed bottom-6 right-6 z-30 bg-surface border border-accent text-primary px-6 py-4 rounded-lg shadow-2xl animate-pulse">
+      <div className="flex items-center gap-3">
+        <span className="text-2xl">🏆</span>
+        <span className="font-medium">{msg}</span>
+      </div>
     </div>
   )
 }
-

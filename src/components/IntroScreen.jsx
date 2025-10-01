@@ -1,11 +1,15 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useMode } from '../hooks/useMode'
+import { useTheme } from '../hooks/useTheme'
+import { getContent } from '../utils/content'
 import ParticleSystem from './ParticleSystem'
-import { useTheme } from '../context/useTheme.js'
 
 export default function IntroScreen() {
   const navigate = useNavigate()
-  const { content } = useTheme()
+  const { mode } = useMode()
+  const { theme } = useTheme()
+  const content = getContent(mode, theme)
 
   useEffect(() => {
     const onAny = () => {
@@ -20,16 +24,19 @@ export default function IntroScreen() {
   }, [navigate])
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center bg-abyss text-gray-200 overflow-hidden">
-      <ParticleSystem id="bonfire-canvas" />
-      <div className="fog-layer" />
-      <div className="vignette-overlay" />
+    <div className="min-h-screen relative flex items-center justify-center bg-base text-primary overflow-hidden vignette-overlay grain-overlay">
+      {mode === 'game' && <ParticleSystem />}
       <div className="relative z-10 text-center">
-        <h1 className="text-5xl md:text-7xl font-gothic text-auric distressed-text">{content?.hero?.title || 'Saketh'}</h1>
-        <p className="mt-2 text-sm uppercase tracking-widest text-gray-400">{content?.hero?.subtitle || 'Full-Stack Architect'}</p>
-        <p className="mt-10 text-ember animate-pulse">{content?.labels?.intro?.pressAny || 'Press any key to begin'}</p>
+        <h1 className="text-6xl md:text-8xl font-gothic text-accent distressed-text title-glow mb-4">
+          {content.hero.title}
+        </h1>
+        <p className="mt-4 text-xl uppercase tracking-widest text-muted">
+          {content.hero.subtitle}
+        </p>
+        <p className="mt-12 text-accent-2 animate-pulse font-medium">
+          Press any key to begin
+        </p>
       </div>
     </div>
   )
 }
-
