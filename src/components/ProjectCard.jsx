@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { useMode } from '../hooks/useMode'
 import { useTheme } from '../hooks/useTheme'
 import { getContent } from '../utils/content'
+import { useSound } from '../hooks/useSound'
 import Modal from './Modal'
 
 function DifficultyBadge({ level }) {
@@ -30,17 +31,28 @@ export default function ProjectCard({ project }) {
   const { mode } = useMode()
   const { theme } = useTheme()
   const content = getContent(mode, theme)
+  const { playSound } = useSound()
 
   const completion = useMemo(() => {
     const pct = project.progress ?? 95
     return Math.min(100, Math.max(0, pct))
   }, [project.progress])
 
+  const handleOpenModal = () => {
+    playSound('modal', 0.2)
+    setOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    playSound('click', 0.2)
+    setOpen(false)
+  }
+
   return (
-    <article className="group card ornate-border">
+    <article className="group card ornate-border transition-all duration-300 hover:scale-[1.02]" onMouseEnter={() => playSound('hover', 0.1)}>
       <div className="p-5">
         <div className="flex items-center gap-3 mb-3">
-          <h3 className="text-xl text-primary font-bold">{project.name}</h3>
+          <h3 className="text-xl text-primary font-bold group-hover:text-accent transition-colors">{project.name}</h3>
           <DifficultyBadge level={project.difficulty} />
         </div>
 
@@ -69,8 +81,8 @@ export default function ProjectCard({ project }) {
 
         <div className="flex gap-2">
           <button
-            onClick={() => setOpen(true)}
-            className="btn-secondary text-sm px-4 py-2"
+            onClick={handleOpenModal}
+            className="btn-secondary text-sm px-4 py-2 transform active:scale-95"
           >
             View Details
           </button>
@@ -79,7 +91,8 @@ export default function ProjectCard({ project }) {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-sm px-4 py-2"
+              className="btn-primary text-sm px-4 py-2 transform active:scale-95"
+              onClick={() => playSound('click', 0.2)}
             >
               Open Project
             </a>
@@ -87,7 +100,7 @@ export default function ProjectCard({ project }) {
         </div>
       </div>
 
-      <Modal open={open} onClose={() => setOpen(false)} title={project.name}>
+      <Modal open={open} onClose={handleCloseModal} title={project.name}>
         <div className="space-y-4">
           <p className="text-primary">{project.description}</p>
 
@@ -124,11 +137,12 @@ export default function ProjectCard({ project }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
+                onClick={() => playSound('click', 0.2)}
               >
                 Open Project
               </a>
             )}
-            <button onClick={() => setOpen(false)} className="btn-secondary">
+            <button onClick={handleCloseModal} className="btn-secondary">
               Close
             </button>
           </div>

@@ -3,6 +3,12 @@ import { useEffect, useState } from 'react'
 const KEYS = {
   ALL_SECTIONS: 'ach_all_sections',
   KONAMI: 'ach_konami',
+  KONAMI_CODE: 'ach_konami_code',
+  THEME_HUNTER: 'ach_theme_hunter',
+  MODE_SWITCHER: 'ach_mode_switcher',
+  THOROUGH: 'ach_thorough',
+  CURIOUS: 'ach_curious',
+  PERSISTENT: 'ach_persistent'
 }
 
 export function useAchievements() {

@@ -1,11 +1,18 @@
 import { useMode } from '../hooks/useMode'
+import { useSound } from '../hooks/useSound'
 
 export default function ModeToggle() {
   const { mode, toggleMode } = useMode()
+  const { playSound } = useSound()
+
+  const handleToggle = () => {
+    playSound('click', 0.3)
+    toggleMode()
+  }
 
   return (
     <button
-      onClick={toggleMode}
+      onClick={handleToggle}
       className="relative px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 hover:scale-105"
       style={{
         background: mode === 'game'

@@ -187,8 +187,8 @@ html[data-mode="game"][data-theme="idol"] {
 html[data-mode="game"][data-theme="stargazer"] {
   /* Backgrounds - Obsidian blues and Victorian dark */
   --color-bg: #0b0e12;           /* Obsidian blue-black */
-  --color-surface: #1a1410;      /* Dark brass/wood */
-  --color-card: #2a1f18;         /* Warm Victorian dark */
+  --color-surface: #11141a;      /* Darker Victorian slate (FIXED) */
+  --color-card: #1a1e26;         /* Deep Victorian blue-gray (FIXED) */
 
   /* Accent colors - Stargazer blue and brass gold */
   --color-accent: #9ac1ff;       /* Stargazer blue glow (primary) */
@@ -201,7 +201,7 @@ html[data-mode="game"][data-theme="stargazer"] {
 
   /* UI Elements */
   --color-danger: #7f1d1d;       /* Dark red */
-  --glass-bg: rgba(26, 20, 16, 0.55);
+  --glass-bg: rgba(17, 20, 26, 0.55);
   --glass-border: rgba(154, 193, 255, 0.15);
   --border-ornate: rgba(154, 193, 255, 0.35);
 
@@ -227,6 +227,20 @@ html, body {
   background-color: var(--color-bg);
   color: var(--color-text);
   transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 /* Typography utilities */
@@ -270,6 +284,32 @@ html, body {
 .distressed-text {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 12px var(--title-glow-1);
   letter-spacing: 0.02em;
+}
+
+/* Hero text shadow for better readability against bright glows */
+.hero-text-shadow {
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.95),
+    0 4px 16px rgba(0, 0, 0, 0.9),
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Theme-specific stronger shadows for brightest themes */
+html[data-mode="game"][data-theme="grace"] .hero-text-shadow {
+  text-shadow:
+    0 2px 10px rgba(4, 2, 0, 0.98),
+    0 4px 20px rgba(0, 0, 0, 0.95),
+    0 8px 40px rgba(0, 0, 0, 0.9),
+    0 0 80px rgba(0, 0, 0, 0.7);
+}
+
+html[data-mode="game"][data-theme="bonfire"] .hero-text-shadow {
+  text-shadow:
+    0 2px 8px rgba(27, 26, 23, 0.95),
+    0 4px 18px rgba(0, 0, 0, 0.9),
+    0 8px 36px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(0, 0, 0, 0.6);
 }
 
 .title-glow {
@@ -331,8 +371,15 @@ html, body {
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
   filter: brightness(0.95);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .btn-secondary {
@@ -358,7 +405,13 @@ html, body {
 }
 
 .btn-secondary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
 }
 
 /* Cards */
@@ -425,11 +478,139 @@ html[data-mode="game"] .particle-container {
   overflow: hidden;
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scrollIndicator {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scrollIndicator 1.5s ease-in-out infinite;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--color-accent), transparent);
+}
+
+/* Accessibility - Focus states */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  z-index: 100;
+  transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
 /* Smooth transitions */
 * {
   transition-property: background-color, border-color, color;
   transition-duration: 0.3s;
   transition-timing-function: ease;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Override Tailwind classes to use CSS variables */
@@ -438,6 +619,35 @@ html[data-mode="game"] .particle-container {
 .text-auric { color: var(--color-accent) !important; }
 .border-auric { border-color: var(--color-accent) !important; }
 .shadow-ember { box-shadow: 0 0 24px var(--glow-accent) !important; }
+
+/* Contact form input consistency - fix email input background */
+input[type="email"],
+input[type="text"],
+input[name="from_name"],
+input[name="reply_to"],
+textarea {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+
+/* Override browser autofill styles to match theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-bg) inset !important;
+  -webkit-text-fill-color: var(--color-text) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Navbar height fix - ensure consistent height across all themes */
+nav {
+  min-height: 64px;
+}
+
+nav > div > div {
+  min-height: 64px;
+}
 
 /* Game-specific enhancements */
 html[data-mode="game"] {
@@ -453,4 +663,36 @@ html[data-mode="game"] h1,
 html[data-mode="game"] h2,
 html[data-mode="game"] h3 {
   font-family: var(--font-gothic);
+}
+
+/* Confetti animation for easter egg */
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti {
+  animation: confetti 3s ease-out forwards;
+}
+
+/* Slide in animation for achievement toast */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out forwards;
 }

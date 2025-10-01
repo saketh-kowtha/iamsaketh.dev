@@ -51,7 +51,7 @@ export default function ContactSection() {
           <div>
             <input
               name="from_name"
-              className="w-full bg-base text-primary border border-ornate rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-base text-primary border-2 border-ornate/50 rounded-lg px-4 py-3 placeholder:text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 hover:border-ornate"
               placeholder={contactContent.form.name}
               required
             />
@@ -61,7 +61,7 @@ export default function ContactSection() {
             <input
               name="reply_to"
               type="email"
-              className="w-full bg-base text-primary border border-ornate rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-base text-primary border-2 border-ornate/50 rounded-lg px-4 py-3 placeholder:text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 hover:border-ornate"
               placeholder={contactContent.form.email}
               required
             />
@@ -71,7 +71,7 @@ export default function ContactSection() {
             <textarea
               name="message"
               rows="5"
-              className="w-full bg-base text-primary border border-ornate rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors resize-none"
+              className="w-full bg-base text-primary border-2 border-ornate/50 rounded-lg px-4 py-3 placeholder:text-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-200 resize-none hover:border-ornate"
               placeholder={contactContent.form.message}
               required
             />
@@ -79,22 +79,26 @@ export default function ContactSection() {
 
           <button
             type="submit"
-            className="w-full btn-primary py-3"
+            className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             disabled={status === 'sending'}
           >
             {status === 'sending' ? 'Sending...' : contactContent.form.send}
           </button>
 
           {status === 'sent' && (
-            <p className="text-center text-accent font-medium animate-pulse">
-              {contactContent.form.sent}
-            </p>
+            <div className="text-center p-3 bg-accent/10 border border-accent rounded-lg animate-fadeIn">
+              <p className="text-accent font-medium">
+                {contactContent.form.sent}
+              </p>
+            </div>
           )}
 
           {status === 'error' && (
-            <p className="text-center text-danger font-medium">
-              {contactContent.form.error}
-            </p>
+            <div className="text-center p-3 bg-danger/10 border border-danger rounded-lg animate-fadeIn">
+              <p className="text-danger font-medium">
+                {contactContent.form.error}
+              </p>
+            </div>
           )}
         </form>
 
