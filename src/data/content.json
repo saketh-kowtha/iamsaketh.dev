@@ -12,12 +12,12 @@
       },
       "hero": {
         "title": "Saketh",
-        "subtitle": "Full-Stack Architect",
-        "tagline": "Building resilient, scalable systems"
+        "subtitle": "Senior Frontend Engineer",
+        "tagline": "7+ years building scalable frontends, micro frontends, and developer tools"
       },
       "about": {
-        "description": "Full-stack engineer focused on shipping reliable, performant systems. I specialize in React frontends and Node.js backends, with particular interest in API optimization and database design. Recently reduced infrastructure costs by 40% through careful resource profiling—small wins that compound.",
-        "quote": "Code with purpose. Ship with confidence."
+        "description": "Senior Frontend Engineer with 7+ years shipping production web applications at product companies. I specialize in React, TypeScript, and modern frontend architecture\u2014most recently optimizing CI/CD pipelines (50% faster builds), leading 8-person engineering pods, and building enterprise debugging platforms serving 200+ engineers. Mentored 15+ engineers, increased test coverage by 20%, and won a company-wide hackathon among 100+ participants with a RAG-powered AI feature.",
+        "quote": "Ship fast, ship right. Optimize later, but measure always."
       },
       "skills": {
         "title": "Technical Skills",
@@ -25,15 +25,62 @@
         "categories": {
           "frontend": {
             "title": "Frontend",
-            "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+            "items": [
+              "JavaScript (ES6+)",
+              "TypeScript",
+              "React.js",
+              "Next.js",
+              "React Native",
+              "Angular",
+              "HTML5/CSS3",
+              "Tailwind CSS",
+              "Styled Components",
+              "Micro Frontends (MFE)",
+              "PWA"
+            ]
+          },
+          "testing": {
+            "title": "Testing & Quality",
+            "items": [
+              "Jest",
+              "Cypress",
+              "Playwright",
+              "React Testing Library",
+              "Storybook",
+              "TDD",
+              "E2E Testing",
+              "Unit Testing"
+            ]
           },
           "backend": {
-            "title": "Backend",
-            "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+            "title": "Backend & Infrastructure",
+            "items": [
+              "Node.js",
+              "Express.js",
+              "GraphQL",
+              "Apollo GraphQL",
+              "REST API",
+              "MongoDB",
+              "PostgreSQL",
+              "Docker",
+              "Kubernetes"
+            ]
           },
           "devops": {
             "title": "DevOps & Tools",
-            "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+            "items": [
+              "CI/CD Optimization",
+              "Jenkins",
+              "GitHub Actions",
+              "Bazel",
+              "Terraform",
+              "Git",
+              "Webpack",
+              "Vite",
+              "ESLint",
+              "Sentry",
+              "New Relic"
+            ]
           }
         }
       },
@@ -42,34 +89,174 @@
         "subtitle": "A selection of work I'm proud of",
         "items": [
           {
-            "id": "project-1",
-            "name": "Blackflame API Gateway",
-            "description": "High-performance API gateway serving 100K+ req/s. When PostgreSQL queries started timing out under load, I redesigned the schema with strategic denormalization, added Redis caching with TTL-based invalidation, and implemented connection pooling. Response time dropped from 450ms to 8ms (98% improvement) without additional hardware.",
-            "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis", "Docker"],
-            "difficulty": "Complex",
-            "link": "https://github.com/saketh",
-            "image": "/assets/images/bf.jpg"
+            "id": "project-compiles",
+            "name": "CompileS",
+            "shortDescription": "Browser-based code compiler and execution platform",
+            "longDescription": "Inspired by HackerEarth and HackerRank, CompileS is a Node.js application that compiles user code directly from the browser. It takes program inputs from the browser and displays output within the browser. Users can also execute code from GitHub and Gist without downloading, making it convenient for quick code testing and sharing.",
+            "challenge": "Developers often need to quickly test code snippets without setting up local environments. Existing solutions require account creation or don't support remote code execution from GitHub/Gist.",
+            "solution": "Built a full-stack Node.js application with browser-based code compilation. Integrated GitHub and Gist APIs to allow direct code execution from URLs. Implemented secure sandboxed execution environment to safely run user-submitted code.",
+            "impact": "Enables instant code testing without local setup. Supports multiple programming languages. Streamlines code sharing and execution workflow for developers.",
+            "tech": [
+              "Node.js",
+              "Express.js",
+              "JavaScript",
+              "REST API",
+              "GitHub API"
+            ],
+            "role": "Lead Developer",
+            "teamSize": "B.Tech Main Project",
+            "duration": "6 months",
+            "status": "Completed",
+            "metrics": {
+              "features": "Browser-based compilation + GitHub/Gist integration",
+              "languages": "Multiple language support",
+              "execution": "Real-time output rendering"
+            }
+          },
+          {
+            "id": "project-sentiment-chat",
+            "name": "Sentiment Analysis Chat Application",
+            "shortDescription": "Real-time chat with emotion detection using IBM Watson",
+            "longDescription": "A real-time chatting application with sentiment analysis capabilities. Built using the MERN stack (MongoDB, Express, React, Node.js), Socket.io for real-time communication, and IBM Tone Analyzer for emotion detection. The app analyzes messages in real-time and provides insights into the emotional tone of conversations.",
+            "challenge": "Traditional chat applications lack emotional context. Understanding the sentiment behind messages can improve communication and help identify mood patterns in conversations.",
+            "solution": "Developed full-stack MERN application with Socket.io for real-time bidirectional communication. Integrated IBM Watson Tone Analyzer API to analyze message sentiment and display emotional indicators. Implemented MongoDB for storing chat history and sentiment data.",
+            "impact": "Provides real-time sentiment feedback during conversations. Helps users understand emotional tone and improve communication. Demonstrates practical application of AI in everyday communication tools.",
+            "tech": [
+              "MongoDB",
+              "Express.js",
+              "React",
+              "Node.js",
+              "Socket.io",
+              "IBM Watson"
+            ],
+            "role": "Full-Stack Developer",
+            "teamSize": "Personal Project",
+            "duration": "2 months",
+            "status": "Completed",
+            "metrics": {
+              "realtime": "Live sentiment analysis",
+              "integration": "IBM Tone Analyzer integration",
+              "stack": "Full MERN stack implementation"
+            }
+          },
+          {
+            "id": "project-timezone",
+            "name": "Timezone Converter",
+            "shortDescription": "Instant timezone conversion between major world cities",
+            "longDescription": "A lightweight and intuitive timezone converter that converts time instantly as you type. Use it to convert time between major world cities, countries, and timezones in both directions. The application provides a clean, user-friendly interface for quick timezone calculations without complex configurations.",
+            "challenge": "Coordinating meetings across multiple timezones is challenging. Existing converters are often cluttered with ads or require multiple steps to get results.",
+            "solution": "Built a fast, responsive web application with instant conversion as you type. Implemented bidirectional timezone conversion supporting major world cities. Focused on clean UX with minimal UI and zero friction for quick lookups.",
+            "impact": "Simplifies timezone coordination for remote teams and international communication. Instant results without page reloads. Clean, distraction-free interface focused on usability.",
+            "tech": [
+              "JavaScript",
+              "HTML5",
+              "CSS3",
+              "Moment.js/Date APIs"
+            ],
+            "role": "Solo Developer",
+            "teamSize": "Personal Project",
+            "duration": "1 week",
+            "status": "Live",
+            "link": "https://time-zone-converter.vercel.app/",
+            "metrics": {
+              "performance": "Instant conversion as you type",
+              "coverage": "Major world cities and timezones",
+              "ux": "Clean, minimal interface"
+            }
+          },
+          {
+            "id": "project-markit",
+            "name": "Markit",
+            "shortDescription": "Live preview markdown editor for Linux and Windows",
+            "longDescription": "Markit is a cross-platform live preview markdown editor available for Linux and Windows. It allows HTML and CSS along with markdown, providing developers and writers with a powerful, flexible editing environment. Real-time preview ensures what you write is what you see, making markdown editing more intuitive and productive.",
+            "challenge": "Markdown editors often lack live preview or don't support HTML/CSS, limiting flexibility. Many web-based editors don't work offline or lack desktop app features.",
+            "solution": "Built a native desktop application using Electron for cross-platform compatibility. Implemented live markdown rendering with support for HTML and CSS. Provided split-pane interface showing markdown source and rendered output side-by-side.",
+            "impact": "Gives developers and writers a powerful offline markdown editor. Supports extended markdown with HTML/CSS for greater flexibility. Cross-platform support for both Linux and Windows users.",
+            "tech": [
+              "Electron",
+              "JavaScript",
+              "HTML5",
+              "CSS3",
+              "Markdown Parser"
+            ],
+            "role": "Solo Developer",
+            "teamSize": "Personal Project",
+            "duration": "1 month",
+            "status": "Completed",
+            "link": "https://github.com/archersarrow/markit",
+            "metrics": {
+              "platforms": "Linux and Windows support",
+              "features": "Live preview + HTML/CSS support",
+              "offline": "Fully offline desktop application"
+            }
           }
         ],
         "cta": {
-          "primary": "View Project",
+          "primary": "View Details",
           "secondary": "View on GitHub"
         }
       },
       "experience": {
         "title": "Professional Journey",
-        "subtitle": "Career highlights and achievements",
+        "subtitle": "From education to 7+ years of engineering excellence",
         "items": [
           {
-            "company": "Firelink Inc.",
-            "role": "Senior Software Engineer",
-            "period": "2022 – Present",
+            "company": "Product Companies",
+            "role": "Senior Frontend Engineer",
+            "period": "2018 \u2013 Present",
+            "location": "India",
+            "description": "7+ years of experience building scalable web applications, micro frontends, and developer tools at product companies. Led engineering pods, optimized CI/CD pipelines, established testing frameworks, and mentored junior developers. Specialized in React, TypeScript, and modern frontend architecture.",
             "achievements": [
-              "Led migration from monolith to microservices (Node.js + K8s), reducing deployment time from 2 hours to 12 minutes",
-              "Reduced API response time by 67% (450ms → 148ms) through database query optimization and strategic Redis caching",
-              "Built automated testing pipeline with 87% pre-production bug catch rate, shipping 40% faster with fewer rollbacks",
-              "Mentored 3 junior engineers, all promoted within 14 months"
+              "Led frontend architecture and development for enterprise platforms serving 100K+ users",
+              "Optimized build pipelines and established testing best practices across multiple organizations",
+              "Mentored 15+ engineers and contributed to technical leadership initiatives"
+            ],
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Node.js",
+              "Next.js",
+              "GraphQL",
+              "Jest",
+              "Cypress",
+              "Playwright",
+              "Docker",
+              "Kubernetes"
             ]
+          },
+          {
+            "company": "University",
+            "role": "B.Tech in Computer Science",
+            "period": "2014 \u2013 2018",
+            "location": "India",
+            "description": "Bachelor of Technology in Computer Science and Engineering. Built strong foundation in algorithms, data structures, software engineering, and web technologies. Completed CompileS as final year project\u2014a browser-based code compiler inspired by HackerRank.",
+            "achievements": [
+              "Developed CompileS (B.Tech main project) - browser-based code compiler with GitHub/Gist integration",
+              "Built multiple full-stack projects including sentiment analysis chat application and timezone converter",
+              "Gained expertise in MERN stack, Node.js, React, and modern web development"
+            ],
+            "technologies": [
+              "JavaScript",
+              "Node.js",
+              "React",
+              "MongoDB",
+              "Express.js",
+              "Data Structures",
+              "Algorithms",
+              "Software Engineering"
+            ]
+          },
+          {
+            "company": "High School",
+            "role": "Secondary Education",
+            "period": "2001 \u2013 2014",
+            "location": "India",
+            "description": "Completed primary and secondary education with focus on science and mathematics, building foundation for engineering studies.",
+            "achievements": [
+              "Developed strong analytical and problem-solving skills",
+              "Gained interest in computers and technology during high school years"
+            ],
+            "technologies": []
           }
         ]
       },
@@ -80,6 +267,7 @@
         "github": "https://github.com/saketh",
         "linkedin": "https://linkedin.com/in/saketh",
         "twitter": "https://x.com/saketh",
+        "availability": "Open to senior frontend engineering roles and technical leadership opportunities",
         "form": {
           "name": "Your Name",
           "email": "Your Email",
@@ -103,12 +291,12 @@
         },
         "hero": {
           "title": "Saketh",
-          "subtitle": "Ashen Developer",
-          "tagline": "Bearer of Code, Seeker of Solutions"
+          "subtitle": "Ashen Frontend Engineer",
+          "tagline": "Kindled by 7 cycles of code, Bearer of React and TypeScript"
         },
         "about": {
-          "description": "An Unkindled engineer who refused to let technical debt consume the codebase. Forged through production fires, I've learned that the best solutions emerge from understanding the problem deeply. Like a well-timed parry, timing matters—ship fast, but ship right.",
-          "quote": "Ashen one, hearest thou my voice? Bring me souls... I mean, clean code."
+          "description": "An Ashen Engineer who has kindled the flames of frontend for 7 cycles. Forged through production fires at product companies. I wield the Arsenal of React, TypeScript, and micro frontend sorceries. Mentored 15 Unkindled souls to earn their place in the hall of legends.",
+          "quote": "Ashen one, hearest thou my voice? Bring me clean code and optimal builds."
         },
         "skills": {
           "title": "Arsenal of the Unkindled",
@@ -116,15 +304,62 @@
           "categories": {
             "frontend": {
               "title": "Sorceries",
-              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+              "items": [
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "React.js",
+                "Next.js",
+                "React Native",
+                "Angular",
+                "HTML5/CSS3",
+                "Tailwind CSS",
+                "Styled Components",
+                "Micro Frontends (MFE)",
+                "PWA"
+              ]
+            },
+            "testing": {
+              "title": "Shields & Miracles",
+              "items": [
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "React Testing Library",
+                "Storybook",
+                "TDD",
+                "E2E Testing",
+                "Unit Testing"
+              ]
             },
             "backend": {
               "title": "Pyromancies",
-              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+              "items": [
+                "Node.js",
+                "Express.js",
+                "GraphQL",
+                "Apollo GraphQL",
+                "REST API",
+                "MongoDB",
+                "PostgreSQL",
+                "Docker",
+                "Kubernetes"
+              ]
             },
             "devops": {
-              "title": "Miracles",
-              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+              "title": "Dark Sorceries",
+              "items": [
+                "CI/CD Optimization",
+                "Jenkins",
+                "GitHub Actions",
+                "Bazel",
+                "Terraform",
+                "Git",
+                "Webpack",
+                "Vite",
+                "ESLint",
+                "Sentry",
+                "New Relic"
+              ]
             }
           }
         },
@@ -133,14 +368,64 @@
           "subtitle": "Souls collected through trial and triumph",
           "items": [
             {
-              "id": "bf-bonfire",
-              "name": "Blackflame API",
-              "boss": "Keeper of Latency",
-              "description": "Slayed the latency demon through surgical optimization. PostgreSQL queries were timing out at 10K concurrent users—I parried with schema redesign, added Redis caching layers, and implemented connection pooling. The beast fell: 450ms → 8ms response time. Victory claimed at 100K+ req/s.",
-              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
-              "difficulty": "Legendary",
-              "link": "https://github.com/saketh",
-              "image": "/assets/images/bf.jpg"
+              "id": "compiles-bonfire",
+              "name": "CompileS Sanctum",
+              "boss": "Compiler Demon",
+              "description": "Slayed the Compiler Demon by forging a browser sanctum that compiles Unkindled code without local incantations. Integrates with GitHub and Gist souls for remote execution. Multiple language souls supported.",
+              "tech": [
+                "Node.js",
+                "Express.js",
+                "JavaScript",
+                "REST API",
+                "GitHub API"
+              ],
+              "difficulty": "Rare",
+              "link": ""
+            },
+            {
+              "id": "sentiment-bonfire",
+              "name": "Emotion Oracle",
+              "boss": "Hollow of Miscommunication",
+              "description": "Defeated the Hollow of Miscommunication with real-time soul divination. MERN sorcery combined with Socket.io chains and IBM Tone Oracle reveals the emotional essence of conversation souls.",
+              "tech": [
+                "MongoDB",
+                "Express.js",
+                "React",
+                "Node.js",
+                "Socket.io",
+                "IBM Watson"
+              ],
+              "difficulty": "Epic",
+              "link": ""
+            },
+            {
+              "id": "timezone-bonfire",
+              "name": "Timekeeper's Ward",
+              "boss": "Guardian of Timezones",
+              "description": "Bound the Guardian of Timezones with instant divination runes. Converts time across the kingdoms as Unkindled type, no page Hollowing required. Clean sanctum interface for quick rituals.",
+              "tech": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Moment.js/Date APIs"
+              ],
+              "difficulty": "Rare",
+              "link": "https://time-zone-converter.vercel.app/"
+            },
+            {
+              "id": "markit-bonfire",
+              "name": "Scribe's Codex",
+              "boss": "Keeper of Markdown",
+              "description": "Forged the Scribe's Codex for Linux and Windows realms. Live preview sorcery with HTML and CSS incantations alongside markdown scripture. Offline sanctum for Unkindled writers and developers.",
+              "tech": [
+                "Electron",
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Markdown Parser"
+              ],
+              "difficulty": "Epic",
+              "link": "https://github.com/archersarrow/markit"
             }
           ],
           "cta": {
@@ -150,18 +435,65 @@
         },
         "experience": {
           "title": "The Journey So Far",
-          "subtitle": "Bonfires lit, bosses defeated",
+          "subtitle": "From Hollow to Lord of Code",
           "items": [
             {
-              "company": "Firelink Inc.",
-              "role": "Lord of Cinder (Senior Engineer)",
-              "period": "Age of Fire: 2022 – Present",
+              "company": "Product Sanctums",
+              "role": "Lord of Frontend",
+              "period": "Age of Fire: 2018 \u2013 Present",
+              "location": "India Kingdoms",
+              "description": "7 cycles kindling flames of frontend across product sanctums. Led covenant expeditions, optimized build rituals, established testing covenants, and mentored 15 Unkindled souls. Mastered React sorceries, TypeScript incantations, and frontend architecture.",
               "achievements": [
-                "Linked the fire by migrating monolith to microservices (Node.js + K8s), cutting deployment time from 2 hours to 12 minutes",
-                "Parried 67% of latency attacks (450ms → 148ms) through database optimization and strategic Redis caching",
-                "Built automated testing covenant with 87% pre-production bug catch rate—fewer YOU DIED screens in production",
-                "Mentored 3 Unkindled developers who earned their place in the hall of legends (all promoted within 14 months)"
+                "Kindled frontend architecture for enterprise sanctums serving 100K+ pilgrims",
+                "Optimized build rituals and established testing covenants across kingdoms",
+                "Mentored 15+ Unkindled souls in the way of code"
+              ],
+              "technologies": [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Next.js",
+                "GraphQL",
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "Docker",
+                "Kubernetes"
               ]
+            },
+            {
+              "company": "Academy of Lordran",
+              "role": "Apprentice of Sorceries",
+              "period": "Age of Scholars: 2014 \u2013 2018",
+              "location": "India Kingdoms",
+              "description": "Trained in the ancient arts of Computer Sorceries at the Academy. Forged CompileS Sanctum as final trial\u2014a browser forge that compiles code without local incantations. Mastered the scriptures of algorithms and data covenants.",
+              "achievements": [
+                "Forged CompileS Sanctum (final trial) - browser compiler with GitHub soul binding",
+                "Crafted multiple full-stack artifacts including emotion oracle and time ward",
+                "Mastered MERN sorceries and frontend incantations"
+              ],
+              "technologies": [
+                "JavaScript",
+                "Node.js",
+                "React",
+                "MongoDB",
+                "Express.js",
+                "Data Structures",
+                "Algorithms",
+                "Software Arts"
+              ]
+            },
+            {
+              "company": "School of the Undead",
+              "role": "Hollow Pupil",
+              "period": "Age of Awakening: 2001 \u2013 2014",
+              "location": "India Kingdoms",
+              "description": "Awakened from Hollowing through primary and secondary trials. Focused on science and mathematics runes, kindling the first ember of engineering destiny.",
+              "achievements": [
+                "Developed problem-solving prowess and analytical thinking",
+                "First spark of interest in computing sorceries ignited"
+              ],
+              "technologies": []
             }
           ]
         },
@@ -172,6 +504,7 @@
           "github": "https://github.com/saketh",
           "linkedin": "https://linkedin.com/in/saketh",
           "twitter": "https://x.com/saketh",
+          "availability": "The Ashen One seeks new covenants in senior frontend sorcery and technical lordship",
           "form": {
             "name": "Your Name",
             "email": "Your Email",
@@ -194,12 +527,12 @@
         },
         "hero": {
           "title": "Saketh",
-          "subtitle": "Tarnished Developer",
-          "tagline": "Guided by Grace, Forged in Code"
+          "subtitle": "Tarnished Frontend Engineer",
+          "tagline": "Guided by Grace for 7 ages, Bearer of React Great Rune"
         },
         "about": {
-          "description": "A Tarnished engineer who rose from obscurity to architect systems at scale. I build with the persistence of someone who's fought Malenia 40 times—every failure teaches, every success compounds. Full-stack craftsman guided by metrics, driven by impact.",
-          "quote": "The guidance of grace shall lead thee to the Elden Throne."
+          "description": "A Tarnished Engineer who rose from obscurity to architect systems at scale. Guided by Grace through product companies. I wield the Great Runes of React, TypeScript, and micro frontend mastery. Guided 15 Tarnished to claim their Great Runes.",
+          "quote": "Rise, Tarnished. The guidance of grace shall lead thee to clean code."
         },
         "skills": {
           "title": "Great Runes of Power",
@@ -207,15 +540,62 @@
           "categories": {
             "frontend": {
               "title": "Runes of Sight",
-              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+              "items": [
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "React.js",
+                "Next.js",
+                "React Native",
+                "Angular",
+                "HTML5/CSS3",
+                "Tailwind CSS",
+                "Styled Components",
+                "Micro Frontends (MFE)",
+                "PWA"
+              ]
+            },
+            "testing": {
+              "title": "Runes of Protection",
+              "items": [
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "React Testing Library",
+                "Storybook",
+                "TDD",
+                "E2E Testing",
+                "Unit Testing"
+              ]
             },
             "backend": {
               "title": "Runes of Strength",
-              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+              "items": [
+                "Node.js",
+                "Express.js",
+                "GraphQL",
+                "Apollo GraphQL",
+                "REST API",
+                "MongoDB",
+                "PostgreSQL",
+                "Docker",
+                "Kubernetes"
+              ]
             },
             "devops": {
               "title": "Runes of Order",
-              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+              "items": [
+                "CI/CD Optimization",
+                "Jenkins",
+                "GitHub Actions",
+                "Bazel",
+                "Terraform",
+                "Git",
+                "Webpack",
+                "Vite",
+                "ESLint",
+                "Sentry",
+                "New Relic"
+              ]
             }
           }
         },
@@ -224,14 +604,64 @@
           "subtitle": "Great Runes claimed in battle",
           "items": [
             {
-              "id": "bf-grace",
-              "name": "Blackflame API",
-              "boss": "Malenia, Blade of Latency",
-              "description": "She has never known defeat... until now. PostgreSQL buckled under 10K concurrent users. I studied her patterns: denormalized the schema, added compound indexes, layered Redis caching with TTL invalidation, implemented connection pooling. After 40 iterations: 450ms → 8ms response time. Waterfowl Dance parried. 100K+ req/s claimed.",
-              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "id": "compiles-grace",
+              "name": "CompileS Erdtree",
+              "boss": "Compiler Demigod",
+              "description": "Shattered the Compiler Demigod by forging browser Erdtree that compiles Tarnished code without local Great Runes. Integrates with GitHub and Gist grace sites for remote execution across the Lands Between.",
+              "tech": [
+                "Node.js",
+                "Express.js",
+                "JavaScript",
+                "REST API",
+                "GitHub API"
+              ],
+              "difficulty": "Shardbearer",
+              "link": ""
+            },
+            {
+              "id": "sentiment-grace",
+              "name": "Emotion Oracle",
+              "boss": "Mohg, Lord of Miscommunication",
+              "description": "Invaded Mohg's Palace of Miscommunication with real-time soul divination. MERN Great Rune combined with Socket.io chains and IBM Tone Oracle reveals emotional Ergo of conversation runes.",
+              "tech": [
+                "MongoDB",
+                "Express.js",
+                "React",
+                "Node.js",
+                "Socket.io",
+                "IBM Watson"
+              ],
               "difficulty": "Demigod",
-              "link": "https://github.com/saketh",
-              "image": "/assets/images/bf.jpg"
+              "link": ""
+            },
+            {
+              "id": "timezone-grace",
+              "name": "Timekeeper's Grace",
+              "boss": "Radagon of Timezones",
+              "description": "Mended Radagon of Timezones with instant grace-guided conversion. Converts time across the Lands Between as Tarnished type, no grace-seeking required. Clean Roundtable Hold interface.",
+              "tech": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Moment.js/Date APIs"
+              ],
+              "difficulty": "Legendary",
+              "link": "https://time-zone-converter.vercel.app/"
+            },
+            {
+              "id": "markit-grace",
+              "name": "Scribe's Great Rune",
+              "boss": "Keeper of Markdown",
+              "description": "Claimed the Scribe's Great Rune for Linux and Windows Lands Between. Live preview incantation with HTML and CSS Great Runes alongside markdown scripture. Offline grace for Tarnished scribes.",
+              "tech": [
+                "Electron",
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Markdown Parser"
+              ],
+              "difficulty": "Shardbearer",
+              "link": "https://github.com/archersarrow/markit"
             }
           ],
           "cta": {
@@ -241,18 +671,65 @@
         },
         "experience": {
           "title": "Path of the Two Fingers",
-          "subtitle": "Guided toward the Elden Throne",
+          "subtitle": "From Tarnished to Elden Lord",
           "items": [
             {
-              "company": "Firelink Inc.",
-              "role": "Elden Lord (Senior Engineer)",
-              "period": "Age of the Erdtree: 2022 – Present",
+              "company": "Product Erdtrees",
+              "role": "Elden Lord of Frontend",
+              "period": "Age of the Erdtree: 2018 \u2013 Present",
+              "location": "India, Lands Between",
+              "description": "7 ages guided by Grace building frontends across product Erdtrees. Led Tarnished legions, optimized build Great Runes, established testing covenants, and guided 15 Tarnished to claim their runes. Master of React, TypeScript, and frontend Great Runes.",
               "achievements": [
-                "Mended the Elden Ring: Led monolith-to-microservices migration (Node.js + K8s), reducing deployment time from 2 hours to 12 minutes",
-                "Defeated Malenia of Latency with 67% performance victory (450ms → 148ms) through database optimization and Redis caching strategy",
-                "Forged automated testing Great Rune with 87% pre-production bug detection—40% faster shipping, fewer grace-site rollbacks",
-                "Guided 3 Tarnished engineers to claim their Great Runes (all promoted within 14 months)"
+                "Mended frontend architecture for enterprise Erdtrees serving 100K+ Tarnished",
+                "Optimized build Great Runes and established testing across the realm",
+                "Guided 15+ Tarnished to claim their Great Runes (promotions)"
+              ],
+              "technologies": [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Next.js",
+                "GraphQL",
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "Docker",
+                "Kubernetes"
               ]
+            },
+            {
+              "company": "Raya Lucaria Academy",
+              "role": "Student of Glintstone",
+              "period": "Age of Study: 2014 \u2013 2018",
+              "location": "India, Lands Between",
+              "description": "Studied the Glintstone sorceries of Computer Science at the Academy. Forged CompileS Erdtree as grand thesis\u2014a browser grace that compiles Tarnished code remotely. Mastered incantations of algorithms and data Great Runes.",
+              "achievements": [
+                "Forged CompileS Erdtree (grand thesis) - browser compiler with GitHub grace binding",
+                "Crafted multiple Great Rune artifacts including emotion oracle and time grace",
+                "Mastered MERN Great Runes and frontend incantations"
+              ],
+              "technologies": [
+                "JavaScript",
+                "Node.js",
+                "React",
+                "MongoDB",
+                "Express.js",
+                "Data Structures",
+                "Algorithms",
+                "Software Incantations"
+              ]
+            },
+            {
+              "company": "School of the Graceless",
+              "role": "Tarnished Pupil",
+              "period": "Age of Awakening: 2001 \u2013 2014",
+              "location": "India, Lands Between",
+              "description": "Rose from graceless obscurity through primary and secondary trials. Focused on science and mathematics Great Runes, first glimpse of the Golden Order of Engineering.",
+              "achievements": [
+                "Developed problem-solving mastery and analytical thinking",
+                "First guidance of Grace toward computing arts witnessed"
+              ],
+              "technologies": []
             }
           ]
         },
@@ -263,6 +740,7 @@
           "github": "https://github.com/saketh",
           "linkedin": "https://linkedin.com/in/saketh",
           "twitter": "https://x.com/saketh",
+          "availability": "The Tarnished seeks new grace in senior frontend Great Runes and Elden Lordship",
           "form": {
             "name": "Your Name",
             "email": "Your Email",
@@ -285,12 +763,12 @@
         },
         "hero": {
           "title": "Saketh",
-          "subtitle": "Shinobi of Systems",
-          "tagline": "Hesitation is Deployment Failure"
+          "subtitle": "Shinobi of Frontend Systems",
+          "tagline": "Hesitation is deployment failure. 7 seasons of code."
         },
         "about": {
-          "description": "A wolf among engineers. Precision matters—one mistimed deflection and production burns. I've learned to read the attacks: profile first, optimize deliberately, test religiously. Hesitation is defeat. Death is learning. Resurrection is iteration.",
-          "quote": "My name is Saketh. Wolf among developers."
+          "description": "Wolf among engineers. Trained in the way of frontend for 7 seasons across product companies. I wield the Prosthetic Tools: React, TypeScript, and micro frontend techniques. Trained 15 wolf cubs\u2014each now wields their own blade.",
+          "quote": "Hesitation is defeat. Death is learning. Resurrection is iteration."
         },
         "skills": {
           "title": "Shinobi Prosthetic Tools",
@@ -298,15 +776,62 @@
           "categories": {
             "frontend": {
               "title": "Loaded Shuriken",
-              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+              "items": [
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "React.js",
+                "Next.js",
+                "React Native",
+                "Angular",
+                "HTML5/CSS3",
+                "Tailwind CSS",
+                "Styled Components",
+                "Micro Frontends (MFE)",
+                "PWA"
+              ]
+            },
+            "testing": {
+              "title": "Loaded Umbrella",
+              "items": [
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "React Testing Library",
+                "Storybook",
+                "TDD",
+                "E2E Testing",
+                "Unit Testing"
+              ]
             },
             "backend": {
               "title": "Flame Vent",
-              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+              "items": [
+                "Node.js",
+                "Express.js",
+                "GraphQL",
+                "Apollo GraphQL",
+                "REST API",
+                "MongoDB",
+                "PostgreSQL",
+                "Docker",
+                "Kubernetes"
+              ]
             },
             "devops": {
               "title": "Divine Abduction",
-              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+              "items": [
+                "CI/CD Optimization",
+                "Jenkins",
+                "GitHub Actions",
+                "Bazel",
+                "Terraform",
+                "Git",
+                "Webpack",
+                "Vite",
+                "ESLint",
+                "Sentry",
+                "New Relic"
+              ]
             }
           }
         },
@@ -315,14 +840,64 @@
           "subtitle": "Trials of skill and precision",
           "items": [
             {
-              "id": "bf-idol",
-              "name": "Blackflame API",
-              "boss": "Inner Father (Latency)",
-              "description": "The ultimate test of deflection. Every request parried with sub-10ms precision.",
-              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
+              "id": "compiles-idol",
+              "name": "CompileS Dojo",
+              "boss": "Compiler Shinobi",
+              "description": "Executed the Compiler Shinobi by forging browser dojo that compiles code without local prosthetics. Integrates with GitHub and Gist scrolls for remote execution. Mortal Blade of compilation.",
+              "tech": [
+                "Node.js",
+                "Express.js",
+                "JavaScript",
+                "REST API",
+                "GitHub API"
+              ],
+              "difficulty": "Mini-Boss",
+              "link": ""
+            },
+            {
+              "id": "sentiment-idol",
+              "name": "Emotion Prosthetic",
+              "boss": "Demon of Miscommunication",
+              "description": "Defeated the Demon of Miscommunication with real-time emotion detection prosthetic. MERN techniques combined with Socket.io chains and IBM Tone Analyzer reveals the stance of conversation souls.",
+              "tech": [
+                "MongoDB",
+                "Express.js",
+                "React",
+                "Node.js",
+                "Socket.io",
+                "IBM Watson"
+              ],
+              "difficulty": "Demon",
+              "link": ""
+            },
+            {
+              "id": "timezone-idol",
+              "name": "Timekeeper's Prosthetic",
+              "boss": "Guardian of Timezones",
+              "description": "Deflected the Guardian of Timezones with instant conversion prosthetic. Converts time across Ashina as shinobi type, no Sculptor's Idol seeking required. Lightning Reversal of timezones.",
+              "tech": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Moment.js/Date APIs"
+              ],
+              "difficulty": "Mini-Boss",
+              "link": "https://time-zone-converter.vercel.app/"
+            },
+            {
+              "id": "markit-idol",
+              "name": "Scribe's Scroll",
+              "boss": "Keeper of Markdown",
+              "description": "Carved the Scribe's Scroll for Linux and Windows territories. Live preview technique with HTML and CSS prosthetics alongside markdown scripture. Offline dojo for wolf scribes.",
+              "tech": [
+                "Electron",
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Markdown Parser"
+              ],
               "difficulty": "Inner",
-              "link": "https://github.com/saketh",
-              "image": "/assets/images/bf.jpg"
+              "link": "https://github.com/archersarrow/markit"
             }
           ],
           "cta": {
@@ -332,17 +907,65 @@
         },
         "experience": {
           "title": "The Sculptor's Path",
-          "subtitle": "Carved from stone, tempered by battle",
+          "subtitle": "From Wolf Cub to Sword Saint",
           "items": [
             {
-              "company": "Firelink Inc.",
-              "role": "Sword Saint (Senior Engineer)",
-              "period": "Year of the Dragon: 2022 – Present",
+              "company": "Product Castles",
+              "role": "Sword Saint of Frontend",
+              "period": "Year of the Dragon: 2018 \u2013 Present",
+              "location": "India, Ashina",
+              "description": "7 seasons trained in the way of frontend across product castles. Led wolf packs, optimized build prosthetics, established testing techniques, and trained 15 wolf cubs. Master of React, TypeScript, and frontend prosthetic tools.",
               "achievements": [
-                "Mastered the Mortal Blade by deploying microservices for 1M+ shinobi",
-                "Deflected 60% of latency attacks with lightning reversal techniques",
-                "Led a pack of 5 wolves through the fires of production"
+                "Executed frontend architecture for enterprise castles serving 100K+ shinobi",
+                "Optimized build prosthetics and established testing across territories",
+                "Trained 15+ wolf cubs in the prosthetic arts"
+              ],
+              "technologies": [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Next.js",
+                "GraphQL",
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "Docker",
+                "Kubernetes"
               ]
+            },
+            {
+              "company": "Ashina Academy",
+              "role": "Wolf Cub",
+              "period": "Years of Training: 2014 \u2013 2018",
+              "location": "India, Ashina",
+              "description": "Trained in Computer Science techniques at the Academy. Forged CompileS Dojo as final trial\u2014a browser dojo that compiles code without local prosthetics. Mastered kata of algorithms and data techniques.",
+              "achievements": [
+                "Forged CompileS Dojo (final trial) - browser compiler with GitHub scroll binding",
+                "Crafted multiple prosthetic artifacts including emotion detector and time converter",
+                "Mastered MERN techniques and frontend prosthetic tools"
+              ],
+              "technologies": [
+                "JavaScript",
+                "Node.js",
+                "React",
+                "MongoDB",
+                "Express.js",
+                "Data Structures",
+                "Algorithms",
+                "Software Techniques"
+              ]
+            },
+            {
+              "company": "Village School",
+              "role": "Young Wolf",
+              "period": "Years of Youth: 2001 \u2013 2014",
+              "location": "India, Ashina",
+              "description": "Trained through primary and secondary education before becoming shinobi. Focused on science and mathematics, first steps on the path of the wolf.",
+              "achievements": [
+                "Developed deflection and problem-solving techniques",
+                "First interest in computing arts sparked"
+              ],
+              "technologies": []
             }
           ]
         },
@@ -353,13 +976,14 @@
           "github": "https://github.com/saketh",
           "linkedin": "https://linkedin.com/in/saketh",
           "twitter": "https://x.com/saketh",
+          "availability": "The Wolf seeks new Sculptor's Idol in senior frontend prosthetics and Sword Saint mastery",
           "form": {
             "name": "Your Name",
             "email": "Your Email",
             "message": "Message",
             "send": "Send Crow",
             "sent": "Shinobi Execution: Message Delivered",
-            "error": "The crow was intercepted. Try again."
+            "error": "The crow was intercepted. Resurrection needed."
           }
         }
       },
@@ -375,12 +999,12 @@
         },
         "hero": {
           "title": "Saketh",
-          "subtitle": "Automaton Developer",
-          "tagline": "Strings Cannot Bind Purpose"
+          "subtitle": "Automaton Frontend Engineer",
+          "tagline": "Strings cannot bind purpose. Awakened for 7 cycles."
         },
         "about": {
-          "description": "A craftsman of code in the Belle Époque tradition. Mechanical precision meets artistic vision—architecting systems with the elegance of clockwork and the soul of Victorian innovation. Every line deliberate, every deployment immaculate.",
-          "quote": "You're telling lies... but lies can become truths."
+          "description": "A craftsman of code in the Belle \u00c9poque tradition. Awakened to frontend for 7 cycles across product companies. I assemble the Legion Arms: React, TypeScript, and micro frontend mechanisms. Trained 15 puppets\u2014each now operates with their own P-Organ.",
+          "quote": "You're telling lies... but lies can become truths. Code is the truth we make."
         },
         "skills": {
           "title": "Legion Arms Arsenal",
@@ -388,15 +1012,62 @@
           "categories": {
             "frontend": {
               "title": "Puppet String",
-              "items": ["React", "React Native", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "Framer Motion"]
+              "items": [
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "React.js",
+                "Next.js",
+                "React Native",
+                "Angular",
+                "HTML5/CSS3",
+                "Tailwind CSS",
+                "Styled Components",
+                "Micro Frontends (MFE)",
+                "PWA"
+              ]
+            },
+            "testing": {
+              "title": "Aegis",
+              "items": [
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "React Testing Library",
+                "Storybook",
+                "TDD",
+                "E2E Testing",
+                "Unit Testing"
+              ]
             },
             "backend": {
-              "title": "Aegis",
-              "items": ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"]
+              "title": "Flamberge",
+              "items": [
+                "Node.js",
+                "Express.js",
+                "GraphQL",
+                "Apollo GraphQL",
+                "REST API",
+                "MongoDB",
+                "PostgreSQL",
+                "Docker",
+                "Kubernetes"
+              ]
             },
             "devops": {
               "title": "Falcon Eyes",
-              "items": ["Kubernetes", "Docker", "CI/CD", "Jenkins", "GitHub Actions", "AWS", "Linux", "Terraform"]
+              "items": [
+                "CI/CD Optimization",
+                "Jenkins",
+                "GitHub Actions",
+                "Bazel",
+                "Terraform",
+                "Git",
+                "Webpack",
+                "Vite",
+                "ESLint",
+                "Sentry",
+                "New Relic"
+              ]
             }
           }
         },
@@ -405,14 +1076,64 @@
           "subtitle": "Gears ground, strings severed",
           "items": [
             {
-              "id": "bf-stargazer",
-              "name": "Blackflame API",
-              "boss": "King of Puppets (Latency)",
-              "description": "Severed the strings of latency with surgical precision. A masterwork of Victorian engineering—100K+ requests orchestrated like clockwork, sub-10ms response times through Redis caching and optimized PostgreSQL indexes.",
-              "tech": ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
-              "difficulty": "King",
-              "link": "https://github.com/saketh",
-              "image": "/assets/images/bf.jpg"
+              "id": "compiles-stargazer",
+              "name": "CompileS Workshop",
+              "boss": "Compiler Automaton",
+              "description": "Dismantled the Compiler Automaton by assembling browser workshop that compiles code without local Legion Arms. Integrates with GitHub and Gist mechanisms for remote execution. Victorian compilation mastery.",
+              "tech": [
+                "Node.js",
+                "Express.js",
+                "JavaScript",
+                "REST API",
+                "GitHub API"
+              ],
+              "difficulty": "Puppet",
+              "link": ""
+            },
+            {
+              "id": "sentiment-stargazer",
+              "name": "Emotion Mechanism",
+              "boss": "Parade Master of Miscommunication",
+              "description": "Severed the Parade Master's strings of Miscommunication with real-time emotion detection mechanism. MERN gears combined with Socket.io chains and IBM Tone Analyzer reveals the Ergo of conversation springs.",
+              "tech": [
+                "MongoDB",
+                "Express.js",
+                "React",
+                "Node.js",
+                "Socket.io",
+                "IBM Watson"
+              ],
+              "difficulty": "Corrupted",
+              "link": ""
+            },
+            {
+              "id": "timezone-stargazer",
+              "name": "Timekeeper's Mechanism",
+              "boss": "Champion of Timezones",
+              "description": "Wound the Champion of Timezones with instant conversion clockwork. Converts time across Krat as puppets type, no Stargazer seeking required. Belle \u00c9poque precision engineering.",
+              "tech": [
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Moment.js/Date APIs"
+              ],
+              "difficulty": "Puppet",
+              "link": "https://time-zone-converter.vercel.app/"
+            },
+            {
+              "id": "markit-stargazer",
+              "name": "Scribe's Legion Arm",
+              "boss": "Keeper of Markdown",
+              "description": "Assembled the Scribe's Legion Arm for Linux and Windows workshops. Live preview gears with HTML and CSS mechanisms alongside markdown scripture. Offline workshop for puppet scribes.",
+              "tech": [
+                "Electron",
+                "JavaScript",
+                "HTML5",
+                "CSS3",
+                "Markdown Parser"
+              ],
+              "difficulty": "Nameless",
+              "link": "https://github.com/archersarrow/markit"
             }
           ],
           "cta": {
@@ -422,17 +1143,65 @@
         },
         "experience": {
           "title": "From Geppetto's Workshop",
-          "subtitle": "Crafted with purpose, refined with will",
+          "subtitle": "From Strings to Sentience",
           "items": [
             {
-              "company": "Firelink Inc.",
-              "role": "Nameless Puppet (Senior Engineer)",
-              "period": "Belle Époque: 2022 – Present",
+              "company": "Product Workshops",
+              "role": "Nameless Puppet of Frontend",
+              "period": "Belle \u00c9poque: 2018 \u2013 Present",
+              "location": "India, Krat",
+              "description": "7 cycles awakened to frontend across product workshops. Led puppet ateliers, optimized build mechanisms, established testing Legion Arms, and trained 15 puppets. Master of React, TypeScript, and frontend Legion Arms.",
               "achievements": [
-                "Cut the strings by architecting autonomous microservices for 1M+ puppets",
-                "Wound the clockwork to reduce latency by 60%",
-                "Assembled a workshop of 5 engineers to craft production masterpieces"
+                "Assembled frontend architecture for enterprise workshops serving 100K+ puppets",
+                "Optimized build mechanisms and established testing across the city",
+                "Trained 15+ puppets to upgrade their P-Organs (promotions)"
+              ],
+              "technologies": [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Next.js",
+                "GraphQL",
+                "Jest",
+                "Cypress",
+                "Playwright",
+                "Docker",
+                "Kubernetes"
               ]
+            },
+            {
+              "company": "Monad Charity House",
+              "role": "Apprentice Puppet",
+              "period": "Era of Learning: 2014 \u2013 2018",
+              "location": "India, Krat",
+              "description": "Assembled knowledge of Computer Science at the Charity House. Forged CompileS Workshop as final masterwork\u2014a browser workshop that compiles code without local Legion Arms. Mastered clockwork of algorithms and data mechanisms.",
+              "achievements": [
+                "Assembled CompileS Workshop (final masterwork) - browser compiler with GitHub mechanism binding",
+                "Crafted multiple Legion Arm artifacts including emotion analyzer and time mechanism",
+                "Mastered MERN gears and frontend Legion Arms"
+              ],
+              "technologies": [
+                "JavaScript",
+                "Node.js",
+                "React",
+                "MongoDB",
+                "Express.js",
+                "Data Structures",
+                "Algorithms",
+                "Software Mechanisms"
+              ]
+            },
+            {
+              "company": "Krat Public School",
+              "role": "Unawakened Puppet",
+              "period": "Era of Strings: 2001 \u2013 2014",
+              "location": "India, Krat",
+              "description": "Operated through primary and secondary education under strings of tradition. Focused on science and mathematics mechanisms, first winding of the P-Organ toward engineering.",
+              "achievements": [
+                "Developed analytical gears and problem-solving springs",
+                "First Ergo of computing interest collected"
+              ],
+              "technologies": []
             }
           ]
         },
@@ -443,13 +1212,14 @@
           "github": "https://github.com/saketh",
           "linkedin": "https://linkedin.com/in/saketh",
           "twitter": "https://x.com/saketh",
+          "availability": "The Puppet seeks new Stargazer in senior frontend Legion Arms and Nameless mastery",
           "form": {
             "name": "Your Name",
             "email": "Your Email",
             "message": "Message",
             "send": "Send Ergo",
             "sent": "Ergo Received: Message Delivered",
-            "error": "The puppet strings tangled. Try again."
+            "error": "The puppet strings tangled. Wind the spring again."
           }
         }
       }

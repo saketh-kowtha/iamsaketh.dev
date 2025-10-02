@@ -1,14 +1,18 @@
-import { useMode } from '../hooks/useMode'
-import { useTheme } from '../hooks/useTheme'
-import { getContent } from '../utils/content'
-import GitHubWidget from './GitHubWidget'
+import { useMode } from "../hooks/useMode";
+import { useTheme } from "../hooks/useTheme";
+import { getContent } from "../utils/content";
+import GitHubWidget from "./GitHubWidget";
 
 function SkillCard({ name, categoryTitle, value = 85 }) {
   return (
     <div className="p-5 card-gothic group cursor-pointer">
       <div className="flex items-center justify-between mb-3">
-        <p className="text-primary font-semibold group-hover:text-accent transition-colors">{name}</p>
-        <span className="badge group-hover:border-accent group-hover:bg-accent/10 transition-all">{value}%</span>
+        <p className="text-primary font-semibold group-hover:text-accent transition-colors">
+          {name}
+        </p>
+        <span className="badge group-hover:border-accent group-hover:bg-accent/10 transition-all">
+          {value}%
+        </span>
       </div>
       <div className="health-bar relative overflow-visible">
         <div
@@ -16,16 +20,18 @@ function SkillCard({ name, categoryTitle, value = 85 }) {
           style={{ width: `${value}%` }}
         />
       </div>
-      <p className="mt-3 text-xs text-muted opacity-90 group-hover:opacity-100 transition-opacity">{categoryTitle}</p>
+      <p className="mt-3 text-xs text-muted opacity-90 group-hover:opacity-100 transition-opacity">
+        {categoryTitle}
+      </p>
     </div>
-  )
+  );
 }
 
 export default function SkillsSection() {
-  const { mode } = useMode()
-  const { theme } = useTheme()
-  const content = getContent(mode, theme)
-  const skills = content.skills
+  const { mode } = useMode();
+  const { theme } = useTheme();
+  const content = getContent(mode, theme);
+  const skills = content.skills;
 
   return (
     <section id="skills" className="py-24 bg-base">
@@ -72,10 +78,10 @@ export default function SkillsSection() {
         {/* GitHub Widget */}
         <div className="mt-12 flex justify-center">
           <div className="w-full max-w-sm">
-            <GitHubWidget username="saketh" />
+            <GitHubWidget username="saketh-kowtha" />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

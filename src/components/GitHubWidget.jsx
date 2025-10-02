@@ -1,76 +1,60 @@
-import { useState, useEffect } from 'react'
-import { useMode } from '../hooks/useMode'
-import { useTheme } from '../hooks/useTheme'
+import { useState, useEffect } from "react";
+import { useMode } from "../hooks/useMode";
 
-export default function GitHubWidget({ username = 'saketh' }) {
-  const { mode } = useMode()
-  const { theme } = useTheme()
-  const [stats, setStats] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+export default function GitHubWidget({ username = "saketh-kowtha" }) {
+  const { mode } = useMode();
+  const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchGitHubStats = async () => {
       try {
         // Check cache first (24 hour cache)
-        const cached = localStorage.getItem('github_stats')
-        if (cached) {
-          const { data, timestamp } = JSON.parse(cached)
-          const age = Date.now() - timestamp
-          const twentyFourHours = 24 * 60 * 60 * 1000
-
-          if (age < twentyFourHours) {
-            setStats(data)
-            setLoading(false)
-            return
-          }
-        }
 
         // Fetch fresh data
-        const response = await fetch(`https://api.github.com/users/${username}`)
-        if (!response.ok) throw new Error('Failed to fetch')
+        const response = await fetch(
+          `https://api.github.com/users/${username}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch");
 
-        const data = await response.json()
+        const data = await response.json();
         const statsData = {
           repos: data.public_repos,
           followers: data.followers,
           following: data.following,
           avatar: data.avatar_url,
           bio: data.bio,
-          url: data.html_url
-        }
+          url: data.html_url,
+        };
 
-        // Cache the data
-        localStorage.setItem('github_stats', JSON.stringify({
-          data: statsData,
-          timestamp: Date.now()
-        }))
-
-        setStats(statsData)
-        setLoading(false)
+        setStats(statsData);
+        setLoading(false);
       } catch (err) {
-        console.error('GitHub fetch error:', err)
-        setError(true)
-        setLoading(false)
+        console.error("GitHub fetch error:", err);
+        setError(true);
+        setLoading(false);
       }
-    }
+    };
 
-    fetchGitHubStats()
-  }, [username])
+    fetchGitHubStats();
+  }, [username]);
 
   if (loading) {
     return (
-      <div className={`card p-4 ${mode === 'game' ? 'glass' : ''} animate-pulse`}>
+      <div
+        className={`card p-4 ${mode === "game" ? "glass" : ""} animate-pulse`}
+      >
         <div className="h-6 bg-accent/20 rounded mb-3 w-32" />
         <div className="h-4 bg-accent/10 rounded w-full mb-2" />
         <div className="h-4 bg-accent/10 rounded w-3/4" />
       </div>
-    )
+    );
   }
 
   if (error || !stats) {
     return (
-      <div className={`card p-4 ${mode === 'game' ? 'glass' : ''} text-center`}>
+      <div className={`card p-4 ${mode === "game" ? "glass" : ""} text-center`}>
         <p className="text-muted text-sm mb-2">Unable to load GitHub stats</p>
         <a
           href={`https://github.com/${username}`}
@@ -81,11 +65,15 @@ export default function GitHubWidget({ username = 'saketh' }) {
           View on GitHub →
         </a>
       </div>
-    )
+    );
   }
 
   return (
-    <div className={`card p-4 ${mode === 'game' ? 'glass' : ''} hover:scale-105 transition-all duration-300 group relative overflow-hidden`}>
+    <div
+      className={`card p-4 ${
+        mode === "game" ? "glass" : ""
+      } hover:scale-105 transition-all duration-300 group relative overflow-hidden`}
+    >
       {/* Decorative corner */}
       <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-accent/10 to-transparent" />
 
@@ -127,5 +115,5 @@ export default function GitHubWidget({ username = 'saketh' }) {
         View Profile →
       </a>
     </div>
-  )
+  );
 }
