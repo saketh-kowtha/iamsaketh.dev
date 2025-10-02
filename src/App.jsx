@@ -19,6 +19,7 @@ const AchievementToast = lazy(() => import('./components/AchievementToast.jsx'))
 const YouDied = lazy(() => import('./components/YouDied.jsx'))
 const ParticleSystem = lazy(() => import('./components/ParticleSystem.jsx'))
 const ContextMenu = lazy(() => import('./components/ContextMenu.jsx'))
+const InstallPWA = lazy(() => import('./components/InstallPWA.jsx'))
 
 function LoadingFallback() {
   return (
@@ -65,43 +66,68 @@ function Layout() {
       (s) => s.id
     )
     const seen = new Set()
+    let ticking = false
 
     const onScroll = () => {
-      // Use requestAnimationFrame for smoother performance
-      requestAnimationFrame(() => {
-        for (const id of sections) {
-          const el = document.getElementById(id)
-          if (!el) continue
-          const rect = el.getBoundingClientRect()
-          if (
-            rect.top < window.innerHeight * 0.7 &&
-            rect.bottom > window.innerHeight * 0.3
-          ) {
-            seen.add(id)
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(() => {
+          for (const id of sections) {
+            const el = document.getElementById(id)
+            if (!el) continue
+            const rect = el.getBoundingClientRect()
+            if (
+              rect.top < window.innerHeight * 0.7 &&
+              rect.bottom > window.innerHeight * 0.3
+            ) {
+              seen.add(id)
+              if (seen.size >= sections.length && !KEYS.ALL_SECTIONS) {
+                unlock(KEYS.ALL_SECTIONS)
+                window.dispatchEvent(new CustomEvent('achievement-unlock', { detail: { key: KEYS.ALL_SECTIONS } }))
+              }
+            }
+          }
+          ticking = false
+        })
+      }
+    }
+
+    // Use passive listener for better scroll performance
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    // Use IntersectionObserver as a more performant alternative for modern browsers
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-15% 0px -15% 0px',
+        threshold: 0
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            seen.add(entry.target.id)
             if (seen.size >= sections.length && !KEYS.ALL_SECTIONS) {
               unlock(KEYS.ALL_SECTIONS)
               window.dispatchEvent(new CustomEvent('achievement-unlock', { detail: { key: KEYS.ALL_SECTIONS } }))
             }
           }
-        }
+        })
+      }, observerOptions)
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id)
+        if (el) observer.observe(el)
       })
-    }
 
-    let ticking = false
-    const debounced = () => {
-      if (!ticking) {
-        ticking = true
-        setTimeout(() => {
-          onScroll()
-          ticking = false
-        }, 150)
+      return () => {
+        window.removeEventListener('scroll', onScroll)
+        observer.disconnect()
       }
+    } else {
+      onScroll()
+      return () => window.removeEventListener('scroll', onScroll)
     }
-
-    window.addEventListener('scroll', debounced, { passive: true })
-    onScroll()
-
-    return () => window.removeEventListener('scroll', debounced)
   }, [unlock, KEYS])
 
   return (
@@ -141,6 +167,7 @@ function Layout() {
       <SearchModal />
       <AchievementToast />
       <ContextMenu />
+      <InstallPWA />
     </div>
   )
 }

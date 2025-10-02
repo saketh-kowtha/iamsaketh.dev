@@ -16,6 +16,12 @@ const useThemeStore = create(
   )
 )
 
+// Initialize theme on load
+if (typeof window !== 'undefined') {
+  const state = useThemeStore.getState();
+  document.documentElement.setAttribute('data-theme', state.theme);
+}
+
 export function useTheme() {
   return useThemeStore()
 }

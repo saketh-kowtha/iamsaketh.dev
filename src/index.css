@@ -17,10 +17,66 @@ html, body, #root {
 
 body {
   overflow-x: hidden;
+  /* Improve mobile scroll performance */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 /* Ensure smooth font rendering */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix scroll performance issues */
+html {
+  /* Enable hardware acceleration for smooth scrolling */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize scroll performance on mobile */
+@media (max-width: 768px) {
+  html {
+    /* Prevent elastic scroll bounce on iOS */
+    overscroll-behavior: none;
+  }
+
+  body {
+    /* Improve touch responsiveness */
+    touch-action: pan-y pinch-zoom;
+  }
+}
+
+/* Enable GPU acceleration for smooth animations */
+.card,
+[data-reveal],
+section {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Ensure smooth scrolling on all devices */
+@supports (-webkit-overflow-scrolling: touch) {
+  html,
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* PWA Install Prompt Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
 }

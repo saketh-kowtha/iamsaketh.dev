@@ -1,0 +1,39 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="150" fill="#3b82f6" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="200" fill="#60a5fa" opacity="0.05"/>
+
+  <!-- Main content -->
+  <text x="600" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="80" font-weight="bold" fill="url(#text-gradient)" text-anchor="middle">
+    SAKETH
+  </text>
+
+  <text x="600" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="#9ca3af" text-anchor="middle">
+    Full-Stack Developer &amp; System Architect
+  </text>
+
+  <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#6b7280" text-anchor="middle">
+    React • Node.js • AWS • DevOps
+  </text>
+
+  <text x="600" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#3b82f6" text-anchor="middle">
+    iamsaketh.dev
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect x="400" y="550" width="400" height="3" fill="url(#text-gradient)" rx="1.5"/>
+</svg>

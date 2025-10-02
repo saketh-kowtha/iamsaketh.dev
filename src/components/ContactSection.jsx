@@ -1,37 +1,51 @@
-import { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser'
-import { useMode } from '../hooks/useMode'
-import { useTheme } from '../hooks/useTheme'
-import { getContent } from '../utils/content'
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useMode } from "../hooks/useMode";
+import { useTheme } from "../hooks/useTheme";
+import { getContent } from "../utils/content";
 
 export default function ContactSection() {
-  const formRef = useRef(null)
-  const [status, setStatus] = useState(null)
-  const { mode } = useMode()
-  const { theme } = useTheme()
-  const content = getContent(mode, theme)
-  const contactContent = content.contact
+  const formRef = useRef(null);
+  const [status, setStatus] = useState(null);
+  const { mode } = useMode();
+  const { theme } = useTheme();
+  const content = getContent(mode, theme);
+  const contactContent = content.contact;
 
   const onSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      setStatus('sending')
+      setStatus("sending");
+
+      // Validate form data before sending
+      const formData = new FormData(formRef.current);
+      const fromName = formData.get("from_name");
+      const replyTo = formData.get("reply_to");
+      const message = formData.get("message");
+
+      if (!fromName || !replyTo || !message) {
+        setStatus("error");
+        setTimeout(() => setStatus(null), 5000);
+        return;
+      }
+
       await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE,
         import.meta.env.VITE_EMAILJS_TEMPLATE,
         formRef.current,
         {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC,
         }
-      )
-      setStatus('sent')
-      formRef.current?.reset()
-      setTimeout(() => setStatus(null), 5000)
+      );
+      setStatus("sent");
+      formRef.current?.reset();
+      setTimeout(() => setStatus(null), 5000);
     } catch (err) {
-      setStatus('error')
-      setTimeout(() => setStatus(null), 5000)
+      console.error("Email error:", err);
+      setStatus("error");
+      setTimeout(() => setStatus(null), 5000);
     }
-  }
+  };
 
   return (
     <section id="contact" className="py-24 bg-surface">
@@ -48,6 +62,13 @@ export default function ContactSection() {
           onSubmit={onSubmit}
           className="space-y-5 p-8 card ornate-border"
         >
+          {/* Hidden field for recipient - required by EmailJS */}
+          <input
+            type="hidden"
+            name="to_email"
+            value="k.sakeths2010@gmail.com"
+          />
+
           <div>
             <input
               name="from_name"
@@ -80,12 +101,12 @@ export default function ContactSection() {
           <button
             type="submit"
             className="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            disabled={status === 'sending'}
+            disabled={status === "sending"}
           >
-            {status === 'sending' ? 'Sending...' : contactContent.form.send}
+            {status === "sending" ? "Sending..." : contactContent.form.send}
           </button>
 
-          {status === 'sent' && (
+          {status === "sent" && (
             <div className="text-center p-3 bg-accent/10 border border-accent rounded-lg animate-fadeIn">
               <p className="text-accent font-medium">
                 {contactContent.form.sent}
@@ -93,7 +114,7 @@ export default function ContactSection() {
             </div>
           )}
 
-          {status === 'error' && (
+          {status === "error" && (
             <div className="text-center p-3 bg-danger/10 border border-danger rounded-lg animate-fadeIn">
               <p className="text-danger font-medium">
                 {contactContent.form.error}
@@ -140,5 +161,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

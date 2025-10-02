@@ -12,25 +12,37 @@ export default function ExperienceTimeline() {
   const itemRefs = useRef([])
 
   useEffect(() => {
-    const observers = itemRefs.current.map((ref, index) => {
-      if (!ref) return null
+    // Reset visible items when experience changes
+    setVisibleItems(new Set())
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleItems((prev) => new Set([...prev, index]))
-            }
-          })
-        },
-        { threshold: 0.2 }
-      )
+    let observers = []
 
-      observer.observe(ref)
-      return observer
-    })
+    // Add a small delay to ensure refs are populated
+    const timer = setTimeout(() => {
+      observers = itemRefs.current.map((ref, index) => {
+        if (!ref) return null
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleItems((prev) => new Set([...prev, index]))
+              }
+            })
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '50px'
+          }
+        )
+
+        observer.observe(ref)
+        return observer
+      })
+    }, 100)
 
     return () => {
+      clearTimeout(timer)
       observers.forEach((observer) => observer?.disconnect())
     }
   }, [experience.items.length])
