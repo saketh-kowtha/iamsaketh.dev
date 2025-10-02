@@ -19,7 +19,6 @@ const AchievementToast = lazy(() => import('./components/AchievementToast.jsx'))
 const YouDied = lazy(() => import('./components/YouDied.jsx'))
 const ParticleSystem = lazy(() => import('./components/ParticleSystem.jsx'))
 const ContextMenu = lazy(() => import('./components/ContextMenu.jsx'))
-const InstallPWA = lazy(() => import('./components/InstallPWA.jsx'))
 
 function LoadingFallback() {
   return (
@@ -167,7 +166,6 @@ function Layout() {
       <SearchModal />
       <AchievementToast />
       <ContextMenu />
-      <InstallPWA />
     </div>
   )
 }
