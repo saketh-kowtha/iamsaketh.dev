@@ -1,37 +1,45 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import { useMode } from '../hooks/useMode'
-import { useTheme } from '../hooks/useTheme'
-import { getContent, getNavigationItems } from '../utils/content'
-import ModeToggle from './ModeToggle'
-import ThemeSelector from './ThemeSelector'
-import SoundToggle from './SoundToggle'
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useMode } from "../hooks/useMode";
+import { useTheme } from "../hooks/useTheme";
+import { getContent, getNavigationItems } from "../utils/content";
+import ModeToggle from "./ModeToggle";
+import ThemeSelector from "./ThemeSelector";
+import SoundToggle from "./SoundToggle";
 
 export default function Navigation() {
-  const { mode } = useMode()
-  const { theme } = useTheme()
-  const content = getContent(mode, theme)
-  const navItems = getNavigationItems(content)
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { mode } = useMode();
+  const { theme } = useTheme();
+  const content = getContent(mode, theme);
+  const navItems = getNavigationItems(content);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false)
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
-    <nav className={`fixed top-0 inset-x-0 z-20 glass ornate-border transition-all duration-300 ${scrolled ? 'shadow-lg' : ''}`}>
+    <nav
+      className={`fixed top-0 inset-x-0 z-20 glass ornate-border transition-all duration-300 ${
+        scrolled ? "shadow-lg" : ""
+      }`}
+    >
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6">
-        <div className={`flex flex-nowrap items-center justify-between gap-4 transition-all duration-300 ${scrolled ? 'h-14' : 'h-16'}`}>
+        <div
+          className={`flex flex-nowrap items-center justify-between gap-4 transition-all duration-300 ${
+            scrolled ? "h-14" : "h-16"
+          }`}
+        >
           {/* Brand - flex-shrink-0 prevents shrinking */}
           <Link
-            to="/home"
+            to="/"
             className="font-gothic text-accent text-lg font-semibold hover:text-accent-2 transition-colors flex-shrink-0"
           >
             {content.navigation.brand}
@@ -57,18 +65,33 @@ export default function Navigation() {
             className="lg:hidden text-muted hover:text-accent transition-colors p-2 flex-shrink-0"
             aria-label="Toggle menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
 
           {/* Controls - flex-shrink-0 prevents shrinking */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            {mode === 'game' && (
+            {mode === "game" && (
               <>
                 <SoundToggle />
                 <ThemeSelector isMobile={false} />
@@ -101,7 +124,7 @@ export default function Navigation() {
             </div>
 
             {/* Sound Toggle & Theme Selector - Mobile */}
-            {mode === 'game' && (
+            {mode === "game" && (
               <>
                 <div className="px-2 pt-2 border-t border-ornate">
                   <div className="flex justify-center">
@@ -117,5 +140,5 @@ export default function Navigation() {
         )}
       </div>
     </nav>
-  )
+  );
 }

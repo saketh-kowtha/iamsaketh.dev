@@ -18,6 +18,7 @@ const SearchModal = lazy(() => import('./components/SearchModal.jsx'))
 const AchievementToast = lazy(() => import('./components/AchievementToast.jsx'))
 const YouDied = lazy(() => import('./components/YouDied.jsx'))
 const ParticleSystem = lazy(() => import('./components/ParticleSystem.jsx'))
+const ContextMenu = lazy(() => import('./components/ContextMenu.jsx'))
 
 function LoadingFallback() {
   return (
@@ -139,6 +140,7 @@ function Layout() {
       </main>
       <SearchModal />
       <AchievementToast />
+      <ContextMenu />
     </div>
   )
 }
